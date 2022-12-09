@@ -24,3 +24,5 @@ https://www.enotek.com.ar/ "pagina elegida porque apunta a un publico mas exclus
 https://www.vinnovo.com.ar/ "elegida por tener un menu carrusel con los nuevos productos y ofertas".
 
 https://vinotecaligier.com/ "seleccionada por ofrecer mas productos".
+
+https://trello.com/b/EmNOOuDL/grupo-3-marketplace Link de Trello.
