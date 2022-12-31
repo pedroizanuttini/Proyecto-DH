@@ -1,0 +1,148 @@
+:root{
+  --primary-color:#e49b0f;
+  --just-white:#FFFFFF;  
+}
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #ebebeb;
+    width: 100%;
+}
+
+a{
+    color: var(--just-white);
+    text-decoration: none;
+}
+i{
+    cursor: pointer;
+}
+
+
+
+.main-header{
+    background-color: #000;
+}
+
+.main-header .main-header__logo{
+    width: 100px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.main-header__logo img{
+    width: 100%;
+}
+
+
+
+.main-header .nav{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 15px;
+}
+
+
+.burguer-menu i{
+    background-color: black;
+    border-radius: 5px;
+    color:var(--just-white);
+    font-size: 25px;
+    height: 20px;
+    width: 40px;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    transition: all 250ms ease-in-out;
+}
+.burguer-menu i:hover{
+    color:var(--primary-color);
+}
+
+.nav .entry-points{
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    color:#FFFFFF;
+}
+
+.entry-points .entry-point__item a, .entry-points .entry-point__item i:hover{
+    transition: all 250ms ease-in-out;
+}
+
+.entry-points .entry-point__item a:hover, .entry-points .entry-point__item i:hover{
+    color: var(--primary-color);
+}
+
+
+.logo-publicidad{
+    width:100vw;
+    height:auto;
+    margin-top:15px;
+}
+
+header div.input {
+    background-color: #fff;
+    border: 1px solid #000;
+    color:darkgrey;
+    width: 100%;
+    margin-top: 15;
+}
+
+main section{
+    
+    
+}
+
+.titulo{
+    margin:10px 0px 30px;
+    text-align: center;
+}
+
+.nombre{
+    display:flex;
+    font-size:14px;
+    color:#8c8c8c;
+    margin-top:10px;
+    text-align:center;
+    width:100%;
+}
+
+.item-image-container {
+    width:150px;
+    height: 240px;
+}
+
+.item-image-container img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.products-container{
+    display:flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.producto{
+    width: 150px;
+}
+
+
+
+
+
+
+
+
+
+
