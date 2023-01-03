@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a289e801ed.js" crossorigin="anonymous"></script>
+    <link href="css/styles.css" rel="stylesheet">
+    <title>Registrarse</title>
+</head>
+
+<body>
+    <img src="/images/logo.png" alt="logo">
+        <form action="/register" method="get">
+            <container>
+                <div>
+                    <h3>Crea tu cuenta</h3>
+                    <label for="nombre">Nombre de Usuario</label>
+                    <input type="text" name="nombreUsuario" id="nombre" placeholder="escriba su nombre" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="escriba su email" required>
+                </div>
+                <div>
+                    <label for="password">Clave</label>
+                    <input type="password" name="clave" id="clave" placeholder="escriba su clave"required>
+                </div>
+                <button type="submit">Registrarse</button>
+            </container>    
+        </form>
+</body>
+</html>
