@@ -14,12 +14,12 @@
         <div class="main-header__logo">
             <img src="/img/logo-proyecto.jpg">
         </div>
-        <nav class="nav">
-            <div class="burguer-menu">
+        <nav class="main-header__nav">
+            <div class="nav__menu-icon">
                 <i class="fa fa-bars burguer"></i>
             </div>
 
-            <ul class="entry-points">
+            <ul class="nav__entry-points">
                 <li class="entry-point__item"><i class="fa fa-search"></i></li>
                 <li class="entry-point__item"><a href="/">Login</a></li>
                 <li class="entry-point__item"><a href="/">Register</a></li>
@@ -28,8 +28,8 @@
 
 
 
-        <div>
-            <img src="/img/publicidad.png" class="logo-publicidad">
+        <div class="main-header__banner">
+            <img src="/img/publicidad.png">
         </div>
 
         <!-- <form class="search-bar">
@@ -40,79 +40,82 @@
     </header>
     <main>
 
-        <section>
-            <h3>Destacados</h3>
-            <div class="products-container">
+        <section class="products-section">
+            <h3 class="products-section__title">Destacados</h3>
+            <div class="products-section__products-container">
+
                 <article class="producto">
-                    <div class="item">
-                        <div class="item-image-container">
-                            <img src="/img/aperol.jpg" class="logo">
-                        </div>
-                        <div class="producto">
-                            <div class="nombre">
-                                <p class="pdp-title">Aperol + Cinzano Sprits</p>
-                            </div>
-                            <div class="valores">
-                                <div class="precio">
-                                    <p>$3220.501</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="producto__image-container">
+                        <img src="/img/aperol.jpg" class="logo">
+                    </div>
+                    <div class="producto__info-product">
+                        <p class="info-product__title">Aperol + Cinzano Sprits</p>
+                        <p class="info-product__precio">$3220.50</p>
+                    </div>
+                </article>
+
+                <article class="producto">
+                    <div class="producto__image-container">
+                        <img src="/img/cinzano.webp">
+                    </div>
+                    <div class="producto__info-product">
+                        <p class="info-product__title">Cinzano segundo 750ml</p>
+                        <p class="info-producto__precio">$6.770</p>
                     </div>
                 </article>
                 <article class="producto">
-                    <section class="recommendations">
-                        <div class="item">
-                            <div class="item-image-container">
-                                <img src="/img/cinzano.webp">
-                            </div>
-                            <div class="producto">
-                                <div class="nombre">
-                                    <p class="pdp-title">Cinzano segundo 750ml</p>
-                                </div>
-                                <div class="valores">
-                                    <div class="precio">
-                                        <p>$6.770</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="producto__image-container">
+                        <img src="/img/tresplumas.webp">
+                    </div>
+                    <div class="producto__info-product">
+                        <p class="info-product__title">Melon 700 ml tres plumas</p>
+                        <p class="info-producto__precio">$6.770</p>
+                    </div>
                 </article>
                 <article class="producto">
-                    <section class="recommendations">
-                        <div class="item">
-                            <div class="item-image-container">
-                                <img src="/img/tresplumas.webp">
-                            </div>
-                            <div class="producto">
-                                <div class="nombre">
-                                    <p class="pdp-title">Melon 700 ml tres plumas</p>
-                                </div>
-                                <div class="valores">
-                                    <div class="precio">
-                                        <p>$6.770</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="producto__image-container">
+                        <img src="/img/fernet.webp">
+                    </div>
+                    <div class="producto__info-product">
+                        <p class="info-product__title">Fernet branca 750 mundial</p>
+                        <p class="info-product__precio">$6.770</p>
+                    <div>
                 </article>
                 <article class="producto">
-                    <section class="recommendations">
-                        <div class="item">
-                            <div class="item-image-container">
-                                <img src="/img/fernet.webp" class="logo">
-                            </div>
-                            <div class="producto">
-                                <div class="nombre">
-                                    <p class="pdp-title">Fernet branca 750 mundial</p>
-                                </div>
-                                <div class="valores">
-                                    <div class="precio">
-                                        <p>$6.770</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="producto__image-container">
+                        <img src="/img/cervezaGrolsch.jpg">
+                    </div>
+                    <div class="producto__info-product">
+                        <p class="info-product__title">Cerveza grolsch Lata 473ml</p>
+                        <p class="info-product__precio">$264</p>
+                    </div>
+                </article>
+                <article class="producto">
+                    <div class="producto__image-container">
+                        <img src="/img/rutini.jpg">
+                    </div>
+                    <div class="producto__info-product">
+                        <p class="info-product__title">Ruttini malbec 750ml</p>
+                        <p class="info-product__precio">4.768,50</p>
+                    </div>
+                </article>
+                <article class="producto">
+                    <div class="producto__image-container">
+                        <img src="/img/rutini.jpg">
+                    </div>
+                    <div class="producto__info-product">
+                        <p class="info-product__title">Grand old parr 12 años 750ml</p>
+                        <p class="info-product__precio">6.479,00</p>
+                    </div>
+                </article>
+                <article class="producto">
+                    <div class="producto__image-container">
+                        <img src="/img/norton.jpg">
+                    </div>
+                    <div class="producto__info-product">
+                        <p class="info-product__title">Norton malbec doc 750ml</p>
+                        <p class="info-product__precio">1.056,0</p>
+                    </div>
                 </article>
             </div>
         </section>

@@ -41,7 +41,7 @@ i{
 
 
 
-.main-header .nav{
+.main-header .main-header__nav{
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -50,7 +50,7 @@ i{
 }
 
 
-.burguer-menu i{
+.main-header__nav .nav__menu-icon i{
     background-color: black;
     border-radius: 5px;
     color:var(--just-white);
@@ -66,23 +66,23 @@ i{
     color:var(--primary-color);
 }
 
-.nav .entry-points{
+.main-header__nav .nav__entry-points{
     display: flex;
     gap: 10px;
     list-style: none;
     color:#FFFFFF;
 }
 
-.entry-points .entry-point__item a, .entry-points .entry-point__item i:hover{
+.nav__entry-points .entry-point__item a, .nav__entry-points .entry-point__item i:hover{
     transition: all 250ms ease-in-out;
 }
 
-.entry-points .entry-point__item a:hover, .entry-points .entry-point__item i:hover{
+.nav__entry-points .entry-point__item a:hover, .nav__entry-points .entry-point__item i:hover{
     color: var(--primary-color);
 }
 
 
-.logo-publicidad{
+.main-header .main-header__banner img{
     width:100vw;
     height:auto;
     margin-top:15px;
@@ -106,7 +106,42 @@ main section{
     text-align: center;
 }
 
-.nombre{
+
+
+.producto .producto__image-container {
+    width:150px;
+    height: 240px;
+}
+
+.producto .producto__image-container img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.products-section .products-section__title{
+    text-align: center;
+    margin: 15px;
+}
+
+.products-section .products-section__products-container{
+    display:flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+}
+
+.producto{
+    width: 150px;
+}
+
+.producto .producto__info-product{
+    text-align: center;
+}
+
+
+.producto__info-product .info-product__title{
     display:flex;
     font-size:14px;
     color:#8c8c8c;
@@ -115,27 +150,11 @@ main section{
     width:100%;
 }
 
-.item-image-container {
-    width:150px;
-    height: 240px;
+.producto__info-product .info-product__precio{
+
 }
 
-.item-image-container img{
-    width:100%;
-    height: 100%;
-    object-fit: cover;
-}
 
-.products-container{
-    display:flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
-}
-
-.producto{
-    width: 150px;
-}
 
 
 
