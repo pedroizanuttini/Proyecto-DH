@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" >
     <script src="https://kit.fontawesome.com/a289e801ed.js" crossorigin="anonymous"></script>
     <link href="css/styles.css" rel="stylesheet">
     <title>Registrarse</title>
 </head>
 
 <body>
-    <img src="/images/logo.png" alt="logo">
-        <form action="/register" method="get">
-            <container>
-                <div>
-                    <h3>Crea tu cuenta</h3>
-                    <label for="nombre">Nombre de Usuario</label>
-                    <input type="text" name="nombreUsuario" id="nombre" placeholder="escriba su nombre" required>
-                </div>
-                <div>
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="escriba su email" required>
-                </div>
-                <div>
-                    <label for="password">Clave</label>
-                    <input type="password" name="clave" id="clave" placeholder="escriba su clave"required>
-                </div>
-                <button type="submit">Registrarse</button>
-            </container>    
-        </form>
+    <header>
+        <div class="main_header_logo_access">
+            <img src="/img/logo-proyecto.jpg">
+        </div>
+    </header>
+    
+    <form action="/register" method="get">
+        <section class="form-register">
+            <h2>Creá tu cuenta</h2>
+            <label class="rotulos" for="nombre">Usuario</label>
+            <input class="controls" type="text" name="nombreUsuario" id="nombre" placeholder="escribe tu nombre" required>
+            <label class="rotulos" for="email">Email</label>
+            <input class="controls" type="email" name="email" id="email" placeholder="escribe tu email" required>
+            <label class="rotulos" for="password">Clave</label>
+            <input class="controls" type="password" name="clave" id="clave" placeholder="escribe tu clave"required>
+            <label><input class="check" type="checkbox" name="aceptar" value="si">He leído y acepto los <a href="#">términos y condiciones.</a></label>
+            <input class="botons" type="submit" value="Registrarme">
+        </section>
+    </form>
 </body>
 </html>

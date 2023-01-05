@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a289e801ed.js" crossorigin="anonymous"></script>
+    <link href="css/styles.css" rel="stylesheet">
+    <title>Ingresá</title>
+</head>
+<body>
+    <header>
+        <div class="main_header_logo_access">
+            <img src="/img/logo-proyecto.jpg">
+        </div>
+    </header>
+    <form action="/login" method="get">
+        <section class="form-login">
+            <h2>Ingresá a tu cuenta</h2>
+            <label class="rotulos" for="nombre">Usuario</label>
+            <input class="controls" type="text" name="nombreUsuario" id="nombre" placeholder="escriba su nombre" required>
+            <label class="rotulos" for="email">Email</label>
+            <input class="controls" type="email" name="email" id="email" placeholder="escriba su email" required>
+            <label class="rotulos" for="password">Clave</label>
+            <input class="controls" type="password" name="clave" id="clave" placeholder="escriba su clave"required>
+            <input class="botons" type="submit" value="Ingresar">
+        </section>    
+    </form>
+</body>
+</html>
