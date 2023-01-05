@@ -37,8 +37,6 @@ i{
     width: 100%;
 }
 
-
-
 .main-header .nav{
     display:flex;
     justify-content: space-between;
@@ -137,101 +135,9 @@ main section{
 
 .main_header_logo_access img{
     width: 100px;
+    margin: 20px 10px 5px 10px;
     margin: auto;
     padding: 1px;
     display: block;
     justify-content: center;
-}
-.form-register{
-    width: 400px;
-    background: #9c9c9c;
-    padding: 30px;
-    margin: auto;
-    margin-top: 100px;
-    border-radius: 4px;
-    text-align: left;
-}
-.form-register h2{
-    font-size: 22px;
-    font-weight: 10px;
-    padding: 10px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-.form-register .rotulos{
-    font-weight: bold;
-    font-size: 16px;
-    height: 20px;
-    margin-bottom: 20px;
-}
-.form-register p{
-    font-size: 12px;
-    line-height: 40px;
-    text-align: left;
-}
-.controls {
-    width:100%;
-    background: #9c9c9c;
-    padding: 10px;
-    border-radius: 1px;
-    margin-bottom: 16px;
-    border: 1px, solid, #1f53c5;
-    font-size: 18px;
-}
-.form-register a:hover {
-    color: #1f53c5;
-    text-decoration: underline;
-}
-.form-register .botons {
-    width: 100%;
-    background: #1f53c5;
-    padding: 12px;
-    color: #ffffff;
-    margin: 16px 0;
-    font-size: 16px;
-}
-
-.form-login{
-    width: 400px;
-    background: #9c9c9c;
-    padding: 30px;
-    margin: auto;
-    margin-top: 100px;
-    border-radius: 4px;
-    text-align: left;
-}
-.form-login h2{
-    font-size: 22px;
-    font-weight: 10px;
-    padding: 10px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-.form-login .rotulos{
-    font-weight: bold;
-    font-size: 16px;
-    height: 20px;
-    margin-bottom: 20px;
-}
-.form-login p{
-    font-size: 12px;
-    line-height: 40px;
-    text-align: left;
-}
-.form-login .controls {
-    width:100%;
-    background: #9c9c9c;
-    padding: 10px;
-    border-radius: 1px;
-    margin-bottom: 16px;
-    border: 1px, solid, #1f53c5;
-    font-size: 18px;
-}
-.form-login .botons {
-    width: 100%;
-    background: #1f53c5;
-    padding: 12px;
-    color: #ffffff;
-    margin: 16px 0;
-    font-size: 16px;
 }

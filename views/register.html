@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" >
     <script src="https://kit.fontawesome.com/a289e801ed.js" crossorigin="anonymous"></script>
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/register.css" rel="stylesheet">
     <title>Registrarse</title>
 </head>
 
 <body>
-    <header>
-        <div class="main_header_logo_access">
-            <img src="/img/logo-proyecto.jpg">
-        </div>
+    <header class="main-header-register">
+        <nav class="main-nav-register">
+            <div class="main_header_logo_access">
+                <img src="/img/logo-proyecto.jpg">
+            </div>
+        </nav>
     </header>
     
     <form action="/register" method="get">
@@ -25,7 +27,7 @@
             <input class="controls" type="email" name="email" id="email" placeholder="escribe tu email" required>
             <label class="rotulos" for="password">Clave</label>
             <input class="controls" type="password" name="clave" id="clave" placeholder="escribe tu clave"required>
-            <label><input class="check" type="checkbox" name="aceptar" value="si">He leído y acepto los <a href="#">términos y condiciones.</a></label>
+            <label><input class="check" type="checkbox" name="aceptar" value="si">Acepto los<a href="#">términos y condiciones.</a></label>
             <input class="botons" type="submit" value="Registrarme">
         </section>
     </form>
