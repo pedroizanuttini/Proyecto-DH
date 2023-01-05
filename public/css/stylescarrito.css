@@ -1,0 +1,30 @@
+/* Fuente para el texto */
+body {
+    font-family: Arial, sans-serif;
+    color: aliceblue;
+  }
+  
+  /* Color de texto */
+  .shopping-cart {
+    color: rgb(255, 255, 255);
+  }
+  
+  /* Color de fondo */
+  .shopping-cart {
+    background-color: #181818;
+  }
+  
+  /* Borde para la tabla */
+  table {
+    border: 1px solid rgba(39, 39, 39, 0.367);
+  }
+  
+  /* Ancho de la tabla */
+  table {
+    width: 100%;
+  }
+
+  body {
+    background-color: black;
+  }
+  
