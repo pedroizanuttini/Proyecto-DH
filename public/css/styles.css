@@ -154,14 +154,55 @@ main section{
 
 }
 
+footer{
+    background-color:black;
+}
 
+.service-containers{
+    color:#fff;
+    margin-top: 20px;
+    align-items: center;
+}
 
+.service-items .service-items_title{
+    margin-top: 25px;
+    text-align: center;
+    letter-spacing: 2px;
+    text-align: center;
+    color:#fff;
+    padding-top: 10px;
+}
 
+.service-items .service-items_text{
+    text-align: center;
+    font-size:14px;
+}
 
+.footer-title{
+    text-align: center;
+    margin-top: 5px;
+    color:#fff; 
+}
 
+.nav-footer .nav-footer_footer-list{
+    margin-top: 10px;
+    list-style: none;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    color:#FFF;
+    line-height: 1.5em;
+}
 
-
-
+.contactos-list{
+    margin-top: 10px;
+    list-style: none;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    color:#FFF;
+    line-height: 1.5em;
+}
 
 
 
