@@ -1,6 +1,9 @@
 :root{
   --primary-color:#e49b0f;
-  --just-white:#FFFFFF;  
+  --secondary-color:#1f53c5;
+  --just-white:#FFFFFF;
+  --just-black:#000000;
+  --gray-color:#9c9c9c;  
 }
 
 *{
@@ -24,7 +27,7 @@ i{
 }
 
 .main-header{
-    background-color: #000;
+    background-color: var(--just-black);
 }
 
 .main-header .main-header__logo{
@@ -49,7 +52,7 @@ i{
 
 
 .main-header__nav .nav__menu-icon i{
-    background-color: black;
+    background-color: var(--just-black);
     border-radius: 5px;
     color:var(--just-white);
     font-size: 25px;
@@ -68,7 +71,7 @@ i{
     display: flex;
     gap: 10px;
     list-style: none;
-    color:#FFFFFF;
+    color:var(--just-white);
 }
 
 .nav__entry-points .entry-point__item a, .nav__entry-points .entry-point__item i:hover{
@@ -109,12 +112,29 @@ main section{
 .producto .producto__image-container {
     width:150px;
     height: 240px;
+    position: relative;
 }
 
 .producto .producto__image-container img{
     width:100%;
     height: 100%;
     object-fit: cover;
+}
+
+.producto .producto__image-container .image-container__mask{
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    position: absolute;
+    cursor: pointer;
+    top:0;
+    left: 0;
+    opacity: 0%;
+    transition: all 250ms ease-in-out;
+}
+
+.producto .producto__image-container .image-container__mask:hover{
+    opacity: 50%;
 }
 
 .products-section .products-section__title{
@@ -154,6 +174,8 @@ main section{
 
 footer{
     background-color:black;
+    padding: 30px 20px;
+    margin-top: 60px;
 }
 
 .service-containers{
@@ -163,7 +185,6 @@ footer{
 }
 
 .service-items .service-items_title{
-    margin-top: 25px;
     text-align: center;
     letter-spacing: 2px;
     text-align: center;
@@ -258,9 +279,7 @@ footer{
     font-size: 16px;
 }
 
-<<<<<<< HEAD
-
-=======
+/*Deberia ir en otra hoja de estilo*/
 .form-login{
     width: 400px;
     background: #9c9c9c;
@@ -305,4 +324,17 @@ footer{
     margin: 16px 0;
     font-size: 16px;
 }
->>>>>>> ffcd9ff7500a94d56b80bd49b0ef46225f002492
+
+.medio-pagos{
+    color:#ffffff;
+    margin:10px 0px;
+    text-align: center;
+}
+
+.payment-icons{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
