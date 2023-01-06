@@ -40,8 +40,6 @@ i{
     width: 100%;
 }
 
-
-
 .main-header .main-header__nav{
     display:flex;
     justify-content: space-between;
@@ -222,6 +220,7 @@ footer{
     color:#FFF;
     line-height: 1.5em;
 }
+<<<<<<< HEAD
 
 .main_header_logo_access img{
     width: 100px;
@@ -338,3 +337,5 @@ footer{
     margin-bottom: 20px;
 }
 
+=======
+>>>>>>> c502593fd501955702b70557bc624b7c19459018
