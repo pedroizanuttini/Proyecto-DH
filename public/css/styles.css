@@ -28,6 +28,7 @@ i{
 
 .main-header{
     background-color: var(--just-black);
+    padding: 0px 0px 20px 0px;
 }
 
 .main-header .main-header__logo{
@@ -61,6 +62,7 @@ i{
     font-size: 18px;
     transition: all 250ms ease-in-out;
 }
+
 .burguer-menu i:hover{
     color:var(--primary-color);
 }
@@ -80,11 +82,17 @@ i{
     color: var(--primary-color);
 }
 
+.main-header__banner{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+        
+}
 
 .main-header .main-header__banner img{
-    width:100vw;
+    width:100%;
+    max-width: 1200px;
     height:auto;
-    margin-top:15px;
 }
 
 header div.input {
@@ -164,11 +172,21 @@ main section{
     margin-top:10px;
     text-align:center;
     width:100%;
+    transition: all 250ms ease-in-out;
+    cursor: pointer;
 }
 
 .producto__info-product .info-product__precio{
-
+    transition: all 250ms ease-in-out;
+    cursor: pointer;
 }
+
+
+.producto .producto__info-product:hover .info-product__title, 
+.producto .producto__info-product:hover .info-product__precio{
+    color: var(--primary-color);
+}
+
 
 footer{
     background-color:black;
@@ -176,13 +194,19 @@ footer{
     margin-top: 60px;
 }
 
-.service-containers{
+.service-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-items{
     color:#fff;
     margin-top: 20px;
     align-items: center;
 }
 
-.service-items .service-items_title{
+.service-items .service-items_title_1{
     text-align: center;
     letter-spacing: 2px;
     text-align: center;
@@ -190,7 +214,33 @@ footer{
     padding-top: 10px;
 }
 
-.service-items .service-items_text{
+.service-items .service-items_title_2{
+    text-align: center;
+    letter-spacing: 2px;
+    text-align: center;
+    color:#fff;
+    padding-top: 10px;
+}
+
+.service-items .service-items_title_3{
+    text-align: center;
+    letter-spacing: 2px;
+    text-align: center;
+    color:#fff;
+    padding-top: 10px;
+}
+
+.service-items .service-items_text_1{
+    text-align: center;
+    font-size:14px;
+}
+
+.service-items .service-items_text_2{
+    text-align: center;
+    font-size:14px;
+}
+
+.service-items .service-items_text_3{
     text-align: center;
     font-size:14px;
 }
@@ -211,6 +261,15 @@ footer{
     line-height: 1.5em;
 }
 
+.nav-footer .nav-footer_footer-list a:hover{
+    transition: all 250ms ease-in-out;
+}
+
+.nav-footer .nav-footer_footer-list a:hover{
+    color: var(--primary-color);
+}
+
+
 .contactos-list{
     margin-top: 10px;
     list-style: none;
@@ -220,8 +279,59 @@ footer{
     color:#FFF;
     line-height: 1.5em;
 }
-<<<<<<< HEAD
 
+.line{
+    margin:20px 0px;
+    opacity: 50%;
+}
+
+@media(max-width:780px){
+    .service-items .service-items_title_2{
+        display:none;
+    }
+
+    .service-items .service-items_text_2{
+        display:none;
+    }
+
+    .service-items .service-items_title_3{
+        display:none;
+    }
+
+    .service-items .service-items_text_3{
+        display:none;
+    }
+    
+}
+
+@media (min-width:780px){
+    .main-header .main-header__logo{
+        width: 150px;
+    }
+    
+    .main-header__logo img{
+        width: 100%;
+    }
+
+    .main-header__nav .nav__menu-icon i{
+        display:none;
+    }
+}
+
+
+
+@media (min-width: 1200px){
+    .main-header .main-header__logo{
+        width: 250px;
+    }
+    
+    .main-header__logo img{
+        width: 100%;
+    }
+
+}
+
+/*esto deberia ir en otra hoja de estilo*/
 .main_header_logo_access img{
     width: 100px;
     margin: auto;
@@ -337,5 +447,3 @@ footer{
     margin-bottom: 20px;
 }
 
-=======
->>>>>>> c502593fd501955702b70557bc624b7c19459018
