@@ -154,6 +154,7 @@ main section{
     width: 100%;
     justify-content: center;
     gap: 20px;
+    margin-top: 30px;
 }
 
 .producto{
@@ -190,9 +191,10 @@ main section{
 
 footer{
     background-color:black;
-    padding: 30px 20px;
+    padding: 30px 20px 35px 20px;
     margin-top: 60px;
 }
+
 
 .service-container{
     display:flex;
@@ -204,11 +206,15 @@ footer{
     color:#fff;
     margin-top: 20px;
     align-items: center;
+    margin-left: 100px;
 }
+
+
 
 .service-items .service-items_title_1{
     text-align: center;
     letter-spacing: 2px;
+    opacity:80%;
     text-align: center;
     color:#fff;
     padding-top: 10px;
@@ -217,6 +223,7 @@ footer{
 .service-items .service-items_title_2{
     text-align: center;
     letter-spacing: 2px;
+    opacity:80%;
     text-align: center;
     color:#fff;
     padding-top: 10px;
@@ -225,6 +232,7 @@ footer{
 .service-items .service-items_title_3{
     text-align: center;
     letter-spacing: 2px;
+    opacity:80%;
     text-align: center;
     color:#fff;
     padding-top: 10px;
@@ -232,23 +240,37 @@ footer{
 
 .service-items .service-items_text_1{
     text-align: center;
-    font-size:14px;
+    font-size:14px "Open Sans";
+    opacity:70%;
+    margin-top: 3px;
+    letter-spacing: 2px;
+    font-weight: 300;
+    
 }
 
 .service-items .service-items_text_2{
     text-align: center;
-    font-size:14px;
+    font-size:14px "Open Sans";
+    opacity:70%;
+    margin-top: 3px;
+    letter-spacing: 2px;
+    font-weight: 300;
 }
 
 .service-items .service-items_text_3{
     text-align: center;
-    font-size:14px;
+    font-size:14px "Open Sans";
+    opacity:70%;
+    margin-top: 3px;
+    letter-spacing: 2px;
+    font-weight: 300;
 }
 
 .footer-title{
     text-align: center;
     margin-top: 5px;
-    color:#fff; 
+    color:#fff;
+    letter-spacing: 2px; 
 }
 
 .nav-footer .nav-footer_footer-list{
@@ -280,12 +302,110 @@ footer{
     line-height: 1.5em;
 }
 
-.line{
+.line-1{
     margin:20px 0px;
     opacity: 50%;
 }
 
+.footer-main{
+    display:flex;
+    justify-content: space-between;
+    text-align: center; 
+}
+
+.footer-main .footer-main_container-1{
+    margin-left: 200px;
+}
+
+.footer-main_container-1 .footer-title{
+    margin-top: 10px;
+}
+
+.nav-footer{
+    margin-left:0px 0px 5px;
+}
+
+
+
+.footer-main .footer-main_container-3{
+    margin-right: 450px;
+    margin-top: 10px;
+}
+
+.footer-main_container- .footer-title{
+    margin-top: 10px;
+}
+
+.payment-icons{
+    list-style: none;
+}
+
+.icon--payment{
+    width: 40px;
+    height: 100px;
+    margin: 0 10px 10px 0;
+}
+
+.svg{
+    font-size: 40px;
+    height: 100px;
+}
+
+.line-2{
+    margin:20px 0px;
+    opacity:60%;
+}
+
+.footer-copyrights{
+    color:#FFF;
+    font-size: 14px;
+    margin-left: 200px;
+}
+
+.footer-claims{
+    color:#FFF;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-left: 200px;
+}
+
+
 @media(max-width:780px){
+
+    .footer-copyrights{
+        margin-left: 0px;
+    }
+
+    .footer-claims{
+        margin-left: 0px;
+    }
+
+    .service-container{
+        margin:auto;
+    }
+
+    .footer-main{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-main_container-1{
+        text-align: center;
+        margin:auto;
+    }
+
+    .footer-main_container-2{
+        text-align: center;
+        margin:auto;
+    }
+
+    .footer-main_container-3{
+        text-align: center;
+        margin:auto;
+    }
+
     .service-items .service-items_title_2{
         display:none;
     }
@@ -305,6 +425,7 @@ footer{
 }
 
 @media (min-width:780px){
+
     .main-header .main-header__logo{
         width: 150px;
     }
@@ -321,6 +442,7 @@ footer{
 
 
 @media (min-width: 1200px){
+
     .main-header .main-header__logo{
         width: 250px;
     }
