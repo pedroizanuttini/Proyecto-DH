@@ -3,6 +3,16 @@
       margin: 1px;
       padding: 1px;
   }
+
+.main-header .main-header__logo{
+    width: 100px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.main-header__logo img{
+    width: 100%;
+}
   
 body{
       font-family: 'Roboto', sans-serif;
