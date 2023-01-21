@@ -1,7 +1,7 @@
 *{
       box-sizing: border-box;
-      margin: 1px;
-      padding: 1px;
+      margin: 0px;
+      padding: 0px;
   }
 
 .main-header .main-header__logo{
@@ -14,12 +14,21 @@
     width: 100%;
 }
 
+.main-header__nav i{
+    cursor: pointer;
+}
+
 .main-header .main-header__nav{
     display:flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: 20px 15px;
+}
+
+.entry-point__item a{
+    text-decoration: none;
+    color:white;
 }
 
 .main-header__nav .nav__entry-points{
@@ -55,7 +64,12 @@ body{
 
 
 main{
-    background-color: #7a7a7a;
+    background-color: #000000;
+}
+
+.form{
+    padding: 60px 0px;
+    
 }
 
 
@@ -118,7 +132,7 @@ main{
 
 footer{
     background-color:black;
-    padding: 30px 20px 35px 20px;
+    padding: 0px 20px 35px 20px;
     margin-top: 60px;
 }
 
@@ -188,7 +202,6 @@ footer{
     opacity: 80%;
     text-align: center;
     color: #fff;
-    padding-top: 10px;
 }
 
 .service-items .service-items_text_3 {
@@ -202,7 +215,6 @@ footer{
 
 .footer-main_container-1 .footer-title{
         text-align: center;
-        margin-top: 5px;
         color: #fff;
         letter-spacing: 2px;
 }
@@ -212,16 +224,17 @@ footer{
     list-style: none;
     color: white;
     text-align: center;
+    margin-top: 10px;
 }
 
 .footer-main_container-2 .medio-pagos{
     text-align: center;
-    margin-top: 5px;
     color: #fff;
     letter-spacing: 2px;
 }
 
 .footer-main_container-2 .payment-icons{
+    margin-top:10px;
     display:flex;
     list-style: none;
 }
@@ -239,12 +252,16 @@ footer{
 
 .footer-main_container-3 .footer-title{
     text-align: center;
-    margin-top: 5px;
     color: #fff;
     letter-spacing: 2px;
 }
 
 .line-1{
+    margin: 20px 0px;
+    opacity: 50%;
+}
+
+.line-2{
     margin: 20px 0px;
     opacity: 50%;
 }
@@ -261,6 +278,46 @@ footer{
     margin-top: 10px;
     margin-left: 200px;
 }
+
+.footer-list_item a{
+    text-decoration: none;
+    color: white;
+}
+
+.contactos-list__item a{
+    text-decoration: none;
+    color:white;
+}
+
+.footer-claims a{
+    text-decoration: none;
+    color:white;
+}
+
+.line-1 {
+    margin: 20px 0px;
+    opacity: 50%;
+}
+
+.footer-main_container-3{
+    text-align: center;
+    margin:0px auto;
+}
+
+.footer-main_container-2{
+    text-align: center;
+    margin:0px auto;
+}
+
+.footer-main_container-1{
+    text-align: center;
+    margin:0px auto;
+}
+
+.footer-main{
+    padding-top:10px;
+}
+
 
 @media(max-width:780px){
     .footer-copyrights{

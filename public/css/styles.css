@@ -23,7 +23,7 @@ a{
     text-decoration: none;
 }
 
-i{
+.main-header__nav i{
     cursor: pointer;
 }
 
