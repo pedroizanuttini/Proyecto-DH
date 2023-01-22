@@ -1,13 +1,37 @@
 *{
     box-sizing: border-box;
-    margin: 1px;
-    padding: 1px;
+    margin: 0px;
+    padding: 0px;
 }
 
 body{
     font-family: 'Roboto', sans-serif;
     background-color: #000000;
     width: 100%;
+}
+
+.main-header__nav i{
+    cursor: pointer;
+}
+
+.entry-point__item a{
+    text-decoration: none;
+    color:white;
+}
+
+.contactos-list .contactos-list__item a{
+    text-decoration: none;
+    color:white;
+}
+
+.nav-footer_footer-list .footer-list_item a{
+    text-decoration: none;
+    color:white;
+}
+
+.footer-claims a{
+    text-decoration: none;
+    color: white;
 }
 
 .main-header .main-header__logo{
@@ -36,16 +60,25 @@ body{
 }
 
 main{
-    background-color: #7a7a7a;
+    background-color: black;
 }
 
 .main-header__nav i{
     cursor: pointer;
 }
 
+.form{
+    max-width: 400px;
+    background: white;
+    padding: 30px;
+    margin: 30px auto 60px auto;
+    border-radius: 4px;
+    text-align: left;
+}
+
 .form-login{
     max-width: 400px;
-    background: #c8c8c8;
+    background: white;
     padding: 30px;
     margin: 0px auto 60px auto;
     margin-top: 100px;
@@ -186,7 +219,6 @@ footer{
 
 .footer-main_container-1 .footer-title{
         text-align: center;
-        margin-top: 5px;
         color: #fff;
         letter-spacing: 2px;
 }
@@ -195,12 +227,15 @@ footer{
 .nav-footer .nav-footer_footer-list{
     list-style: none;
     color: white;
-    text-align: center;
+    margin-top: 10px;
+    line-height: 1.5em;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .footer-main_container-2 .medio-pagos{
     text-align: center;
-    margin-top: 5px;
     color: #fff;
     letter-spacing: 2px;
 }
@@ -208,6 +243,7 @@ footer{
 .footer-main_container-2 .payment-icons{
     display:flex;
     list-style: none;
+    margin-top: 10px;
 }
 
 .footer-main .footer-main_container-3 .contactos-list{
@@ -223,7 +259,6 @@ footer{
 
 .footer-main_container-3 .footer-title{
     text-align: center;
-    margin-top: 5px;
     color: #fff;
     letter-spacing: 2px;
 }
@@ -244,6 +279,16 @@ footer{
     font-size: 12px;
     margin-top: 10px;
     margin-left: 200px;
+}
+
+.line-1{
+    margin: 20px 0px;
+    opacity: 50%;
+}
+
+.line-2{
+    margin: 20px 0px;
+    opacity: 50%;
 }
 
 @media(max-width:780px){

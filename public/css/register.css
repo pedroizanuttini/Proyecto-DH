@@ -75,7 +75,7 @@ main{
 
 .form-register{
     max-width: 400px;
-    background: #c8c8c8;
+    background: white;
     padding: 30px;
     margin: 30px auto 60px auto;
     border-radius: 4px;
@@ -166,7 +166,6 @@ footer{
     opacity: 80%;
     text-align: center;
     color: #fff;
-    padding-top: 10px;
 }
 
 .service-items .service-items_text_1 {
@@ -184,7 +183,6 @@ footer{
     opacity: 80%;
     text-align: center;
     color: #fff;
-    padding-top: 10px;
 }
 
 .service-items .service-items_text_2 {
