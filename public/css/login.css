@@ -75,10 +75,6 @@ main{
     cursor: pointer;
 }
 
-.producto .producto__info-product:hover .info-product__title, 
-.producto .producto__info-product:hover .info-product__precio{
-    color: #e49b0f;
-}
 
 .nav-footer .nav-footer_footer-list a:hover{
     transition: all 250ms ease-in-out;
@@ -91,8 +87,7 @@ main{
 .form{
     max-width: 400px;
     background: white;
-    padding: 30px;
-    margin: 30px auto 60px auto;
+    margin: 30px auto 100px auto;
     border-radius: 4px;
     text-align: left;
 }
@@ -155,7 +150,7 @@ main{
 
 
 footer{
-    background-color:black;
+    background-color:#256b3e;
     padding: 30px 20px 35px 20px;
     margin-top: 60px;
 }
