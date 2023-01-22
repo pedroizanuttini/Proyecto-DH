@@ -232,10 +232,12 @@ footer{
 }
 
 .footer-main_container-2 .payment-icons{
-    margin-top:10px;
-    display:flex;
     list-style: none;
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
 }
+
 
 .footer-main .footer-main_container-3 .contactos-list{
     margin-top: 10px;
