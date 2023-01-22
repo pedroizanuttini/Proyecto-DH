@@ -63,8 +63,29 @@ main{
     background-color: black;
 }
 
+.nav__entry-points .entry-point__item a, .nav__entry-points .entry-point__item i:hover{
+    transition: all 250ms ease-in-out;
+}
+
+.nav__entry-points .entry-point__item a:hover, .nav__entry-points .entry-point__item i:hover{
+    color: #e49b0f;
+}
+
 .main-header__nav i{
     cursor: pointer;
+}
+
+.producto .producto__info-product:hover .info-product__title, 
+.producto .producto__info-product:hover .info-product__precio{
+    color: #e49b0f;
+}
+
+.nav-footer .nav-footer_footer-list a:hover{
+    transition: all 250ms ease-in-out;
+}
+
+.nav-footer .nav-footer_footer-list a:hover{
+    color:#e49b0f;
 }
 
 .form{
