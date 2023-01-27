@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a289e801ed.js" crossorigin="anonymous"></script>
+    <link href="../css/styles.css" rel="stylesheet">
+    <title>Grupo 3</title>
+</head>
+
+<body>
+    <%- include('../partials/header'); -%>
+    <main class="main">
+        <section class="new-product">
+            <h1 class="new-product__title">Agrega un producto nuevo</h1>     
+            <form class="new-product__form" action="">
+
+                <div class="form-group">
+                    <label for="name">Nombre de producto: </label>
+                    <input id="name" name="name" class="form-group__input" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Descripción del producto: </label>
+                    <input id="description" name="description" class="form-group__input" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label for="image">Imagen del producto: </label>
+                    <input id="image" name="image" class="form-group__file" type="file">
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Categoría: </label>
+                    <input id="category" name="category" class="form-group__input" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label for="price">price: </label>
+                    <input id="price" name="price" class="form-group__input" type="number">
+                </div>
+
+            </form>
+        </section>    
+    </main>
+    <%- include('../partials/footer'); -%>
+</body>
+
+</html>
