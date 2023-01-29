@@ -1,0 +1,11 @@
+[
+    {
+        "id":1,
+        "fname":"juan",
+        "lname":"cruz",
+        "email":"juan.cruz@admin.com",
+        "password":123456,
+        "category":"admin",
+        "image":"https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    }
+]

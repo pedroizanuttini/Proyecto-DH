@@ -1,0 +1,26 @@
+[
+    {
+       "id":1,
+       "name":"aperol spirit",
+        "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ipsa quos, eum nostrum distinctio doloribus esse saepe doloremque ipsum suscipit! Quae, assumenda eum. Distinctio alias cum nisi, optio ipsam placeat.",
+        "image":"/img/aperol.jpg",
+        "category":"Bebida blanca",
+        "price":100
+    },
+    {
+        "id":2,
+        "name":"Baileys",
+         "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ipsa quos, eum nostrum distinctio doloribus esse saepe doloremque ipsum suscipit! Quae, assumenda eum. Distinctio alias cum nisi, optio ipsam placeat.",
+         "image":"/img/Baileys.jpg",
+         "category":"Bebida blanca",
+         "price":200
+     },
+     {
+        "id":3,
+        "name":"Norton",
+         "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ipsa quos, eum nostrum distinctio doloribus esse saepe doloremque ipsum suscipit! Quae, assumenda eum. Distinctio alias cum nisi, optio ipsam placeat.",
+         "image":"/img/norton.jpg",
+         "category":"vinos",
+         "price":300
+     }
+]

@@ -10,26 +10,7 @@
 </head>
 
 <body>
-    <header class="main-header">
-        <div class="main-header__logo">
-            <img src="/img/logo-proyecto.jpg">
-        </div>
-        <nav class="main-header__nav">
-            <div class="nav__menu-icon">
-                <i class="fa fa-bars burguer"></i>
-            </div>
-
-            <ul class="nav__entry-points">
-                <li class="entry-point__item"><i class="fa fa-search"></i></li>
-                <li class="entry-point__item"><a href="/">Home</a></li>
-                <li class="entry-point__item"><a href="/login">Ingresá</a></li>
-                <li class="entry-point__item"><a href="/register">Creá tu cuenta</a></li>
-            </ul>
-        </nav>
-        <div class="main-header__banner">
-            <img src="/img/2023-01-22_23-14-23.jpg">
-        </div>
-    </header>
+    <%- include('./partials/header'); -%>
 
     <main class="main">
         <section class="cart">
