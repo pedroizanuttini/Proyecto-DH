@@ -1,0 +1,205 @@
+:root{
+    --primary-color:#e49b0f;
+    --secondary-color:#1f53c5;
+    --just-white:#FFFFFF;
+    --just-black:#000000;
+    --gray-color:#9c9c9c;  
+  }
+
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+  body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #000000;
+    width: 100%;
+}
+
+.main{
+    padding-bottom: 100px;
+}
+
+.button-primary{
+    border: 2px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--just-black);
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 12px 30px;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    max-width: 400px;
+}
+
+.main-header .main-header__logo{
+    width: 250px;
+    margin: 0px auto;
+    padding: 10px 0;
+  }
+  
+  .main-header__logo img{
+    width: 100%;
+  }
+  
+
+.cart{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color:white;
+    padding: 40px 20px;
+    gap: 30px;
+  }
+  
+  .cart-container{
+    width: 90vw;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  
+  .cart-container__item{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    border: 1px solid #FFFFFF50;
+    position: relative;
+  } 
+  
+  .cart-container__item .item__image{
+    width: 200px;
+    height: 230px;
+  }
+
+  .cart-container__item .item__image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .cart-container__item .item__info{
+    padding: 20px 10px;
+  }
+  
+  .cart-container__item .item__info .info__title{
+    font-size: 1.4rem; /* 1.4rem x 16px == 22...*/
+    margin-bottom: 20px;    
+  }
+  
+  .cart-container__item .item__info .info__size{
+    font-size:1.1rem;
+    margin: 10px 0;
+  }
+  
+  .cart-container__item .item__info .info__price{
+    font-size:1.1rem;
+    font-weight: 600;
+    margin: 10px 0;
+  }
+  
+  .cart-container__item .item__info .info__qty{
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .cart-container__item .item__info .info__qty .qty__count{
+    border: 1px solid #FFFFFF50;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+    background-color: transparent;
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+  }
+  
+  .cart-container__item .item__info .info__qty .qty__count:hover{
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--just-black);
+  }
+
+  .cart-container__item .item__info .info__qty .qty__value{
+    background-color: var(--just-white);
+    color: var(--primary-color);
+    width: 40px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cart-container__item .item__info .info__total{
+    font-size:1.1rem;
+    font-weight: 600;
+    margin: 10px 0;
+  }
+  
+  
+  
+  .cart-container__item .item__icon-close{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--just-black);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 200ms ease-in-out;
+  }
+  
+  .cart-container__item .item__icon-close:hover{
+    background-color: transparent;
+    color: var(--primary-color);
+  }
+  
+  .cart_summary{
+    max-width: 600px;
+    display: flex;
+    justify-content: space-between;
+    margin:0px auto;
+  }
+  
+  .cart__summary h2{
+    margin-bottom: 20px;
+    
+  }
+  
+  .cart__summary p{
+    margin-bottom: 10px;
+  }
+  
+  
+  @media(max-width:780px){
+    .cart_summary{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cart_summary .button-primary{
+        margin: 10px auto;
+    }
+
+    .main-header .main-header__logo{
+        width: 150px;
+    }
+    
+    .main-header__logo img{
+        width: 100%;
+    }
+  }

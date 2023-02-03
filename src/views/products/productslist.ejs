@@ -1,11 +1,52 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de productos</title>
+    <link href="css/productlist.css" rel="stylesheet">
 </head>
+
 <body>
-    <%- include('../partials/headeradmin'); -%> 
+    <%- include('../partials/headeradmin'); -%>
+        <main class="main">
+            <section class="cart">
+                <div class="cart-container">
+                    <h2>Product</h2>
+
+                    <% if (products) { %>
+                        <% products.forEach(prod=> { %>
+                            <article class="cart-container__item">
+                                <div class="item__image">
+                                    <img src="<%=prod.image%>" >
+                                </div>
+
+                                <div class="item__info">
+                                    <h3 class="info__title">Nombre: <%=prod.name %> </h3>
+                                    <p class="info__size">Descripcion: <%=prod.description %></p>
+                                    <p class="info__price">Categoria: <%= prod.category %></p>
+                                    <p class="info__price">Precio: <%= prod.price %></p>
+                                    <div class="info__qty">
+                                        <button class="qty__count">-</button>
+                                        <div class="qty__value">1</div>
+                                        <button class="qty__count">+</button>
+                                    </div>
+                                    <button class="button-primary">Editar</button>
+                                </div>
+                                <button class="item__icon-close">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </article>
+                            <% }) %>
+                        <% } %>
+                </div>
+            </section>
+            <div class="cart_summary">
+                <button class="button-primary">Agregar un nuevo producto</button>
+            </div>
+
+        </main>
 </body>
+
 </html>

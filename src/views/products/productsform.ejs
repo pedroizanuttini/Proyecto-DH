@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <script src="https://kit.fontawesome.com/a289e801ed.js" crossorigin="anonymous"></script>
-    <link href="../css/productform.css" rel="stylesheet">
+    <link href="/css/productform.css" rel="stylesheet">
     <title>Grupo 3</title>
 </head>
 
@@ -15,34 +15,70 @@
     <main class="main">
         <section class="new-product">
             <h1 class="new-product__title">Agrega un producto nuevo</h1>     
-            <form class="new-product__form" action="" method="POST">
+            <% if (product) { %>
+                <form class="new-product__form" action="http://localhost:3000/products/<%=product.id%>" method="PUT">
 
-                <div class="form-group">
-                    <label for="name">Nombre de producto: </label>
-                    <input id="name" name="name" class="form-group__input" type="text">
-                </div>
+                    <div class="form-group">
+                        <label for="name">Nombre de producto: </label>
+                        <input value=<%= product.name %> id="name" name="name" class="form-group__input" type="text">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="description">Descripción del producto: </label>
+                        <input value=<%= product.description %> id="description" name="description" class="form-group__input" type="text">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="image">Imagen del producto: </label>
+                        <input value=<%= product.image %> id="image" name="image" class="form-group__file" type="text">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="category">Categoría: </label>
+                        <input value=<%= product.category %> id="category" name="category" class="form-group__input" type="text">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="price">Precio: </label>
+                        <input value=<%= product.price %> id="precio" name="precio" class="form-group__input" type="number">
+                    </div>
+                    <button type="submit">
+                        Actualizar producto
+                    </button>
+    
+                </form>
+            <% } else { %> 
+                <form class="new-product__form" action="http://localhost:3000/products" method="POST">
 
-                <div class="form-group">
-                    <label for="description">Descripción del producto: </label>
-                    <input id="description" name="description" class="form-group__input" type="text">
-                </div>
-
-                <div class="form-group">
-                    <label for="image">Imagen del producto: </label>
-                    <input id="image" name="image" class="form-group__file" type="file">
-                </div>
-
-                <div class="form-group">
-                    <label for="category">Categoría: </label>
-                    <input id="category" name="category" class="form-group__input" type="text">
-                </div>
-
-                <div class="form-group">
-                    <label for="price">Precio: </label>
-                    <input id="precio" name="precio" class="form-group__input" type="number">
-                </div>
-
-            </form>
+                    <div class="form-group">
+                        <label for="name">Nombre de producto: </label>
+                        <input id="name" name="name" class="form-group__input" type="text">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="description">Descripción del producto: </label>
+                        <input id="description" name="description" class="form-group__input" type="text">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="image">Imagen del producto: </label>
+                        <input id="image" name="image" class="form-group__file" type="text">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="category">Categoría: </label>
+                        <input id="category" name="category" class="form-group__input" type="text">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="price">Precio: </label>
+                        <input id="price" name="price" class="form-group__input" type="number">
+                    </div>
+                    <button type="submit">
+                        Agregar producto
+                    </button>
+                </form>
+                <% } %> 
         </section>    
     </main>
 </body>
