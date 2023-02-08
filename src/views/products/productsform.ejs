@@ -16,7 +16,7 @@
         <section class="new-product">
             <h1 class="new-product__title">Agrega un producto nuevo</h1>     
             <% if (product) { %>
-                <form class="new-product__form" action="http://localhost:3000/products/<%=product.id%>" method="PUT">
+                <form class="new-product__form" action="http://localhost:3000/products/<%=product.id%>" method="POST">
 
                     <div class="form-group">
                         <label for="name">Nombre de producto: </label>
@@ -40,7 +40,7 @@
     
                     <div class="form-group">
                         <label for="price">Precio: </label>
-                        <input value=<%= product.price %> id="precio" name="precio" class="form-group__input" type="number">
+                        <input value=<%= product.price %> id="price" name="price" class="form-group__input" type="number">
                     </div>
                     <button type="submit">
                         Actualizar producto

@@ -3,9 +3,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/productdetails.css" rel="stylesheet">
     <title>Detalle producto</title>
 </head>
 <body>
-    <%- include('../partials/headeradmin'); -%>
+    <%- include('../partials/header'); -%>
+    
+    <main class="main">
+        <section class="cart">
+            <div class="cart-container">
+                <article class="cart-container__item">
+                    <div class="item__image">
+                        <img src="/img/Baileys.jpg">
+                    </div>
+                    <div class="item__info">
+                        <h2 class="product_title">Titulo producto</h2>
+                        <p class="info__product"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse ab saepe natus eligendi vero, nisi, repudiandae et eveniet cumque est, cum autem iste adipisci necessitatibus!.</p>
+                        <p class="info__size">Precio: Testing </p>
+                        <p class="info__price">Tamano : Testing</p>
+                        <p class="info__categoria">Categoria: Testing</p>
+                        <p class="info__tipo">Tipo: Testing</p>
+                        <div class="info__qty">
+                            <p class="info__quantity">Cantidad</p>
+                            <button class="qty__count">-</button>
+                            <div class="qty__value">1</div>
+                            <button class="qty__count">+</button>
+                        </div>
+                        <button class="button-primary">Agregar al carrito</button>
+                    </div>
+                    <button class="item__icon-close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    </div>
+                </article>
+            </div>
+            <h2 class="cart-title">Descripcion producto</h2>
+            <div class="cart-description">
+                <div class="cart-description__paragraphs">
+                    <p class="item_paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste incidunt hic accusamus deleniti minus aperiam porro vitae ipsa, explicabo quas perspiciatis veritatis accusantium amet consequatur perferendis, ut sed esse ratione?. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eaque facere quam, cupiditate unde quia porro error necessitatibus, repellat temporibus provident magnam nostrum dolorem! Consequuntur vitae porro itaque assumenda tempore.</p>
+                    <p class="item_paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum dignissimos eius excepturi. Porro dolorum perferendis soluta maiores error. Est soluta iusto suscipit tenetur quod quia maiores! Numquam, at ullam? Quaerat?. Lorem, ipsum dolor sit amet consectetur adipisicing elit. A omnis amet quas et ex nisi voluptates repudiandae iusto voluptate quos molestiae rerum ipsam, quis ut soluta reprehenderit. Fugit, ullam deserunt? </p>
+                    <p class="item_paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim minus ipsum iusto dignissimos cum dolorum, a aliquam sint quod ullam perspiciatis velit ut suscipit sapiente modi repellat iure cumque dolorem!. Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, ullam corporis repellendus nisi saepe, ratione accusamus excepturi dolorem iure recusandae nesciunt numquam temporibus blanditiis quidem, suscipit fuga perspiciatis sed dignissimos.</p>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    <%- include('../partials/footer'); -%>   
 </body>
 </html>

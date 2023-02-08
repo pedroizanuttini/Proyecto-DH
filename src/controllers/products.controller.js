@@ -12,11 +12,10 @@ const showProducts = async (req, res=response) => {
 // se usa para mostrar el formulario de creacion y el formulario de edicion
 //http://localhost:3000/products/new  OR  //http://localhost:3000/products/:id/edit
 const showProductsFormEdit = async (req, res=response) => {
-    const { id } = req.params;
+    const { id } = req.params;  //el request params es todo lo que esta con :.  Las llaves lo que hace es desestructurar una propiedad de un request params (parametros)
     
     if(id){// para editar
         const product = await container.getProductById(id);
-        console.log(product);
         res.render('./products/productsform',{ product });
     }else{// para crear
         res.render('./products/productsform',{product:null});
@@ -24,14 +23,13 @@ const showProductsFormEdit = async (req, res=response) => {
 }
 
 const showProductDetail = (req, res=response) => {
-    res.render('./products/productDetail',{});
+    res.render('./products/productDetails',{});
 }
 
 
 //http://localhost:3000/products
 const createProduct = async (req, res=response) => {
 
-    console.log(req.body);
     const result = await container.createProduct(req.body);
     const products = await container.getAllProducts();
     
@@ -51,18 +49,24 @@ const createProduct = async (req, res=response) => {
 }
 
 const updateProduct = async (req, res=response) => {
+
+    console.log(req.params);
+
     const result = await container.updateProduct(req.params.id, req.body);
+    const products = await container.getAllProducts();
     if (result){
-        return res.status(200).json({
-            ok:true,
-            data: result
-        })
+        // return res.status(200).json({
+        //     ok:true,
+        //     data: result
+        // })
+        return res.render('./products/productslist',{ products });
     }
     else{
-        return res.status(500).json({
-            ok:false,
-            message: 'Error en el servidor'
-        })
+        // return res.status(500).json({
+        //     ok:false,
+        //     message: 'Error en el servidor'
+        // })
+        return res.render('./products/productslist',{ products });
     }
 }
 
