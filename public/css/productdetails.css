@@ -261,173 +261,187 @@ body {
   line-height: 1.5em;
 }
 
+.nav__entry-points .entry-point__item a, .nav__entry-points .entry-point__item i:hover{
+  transition: all 250ms ease-in-out;
+}
+
+.nav__entry-points .entry-point__item a:hover, .nav__entry-points .entry-point__item i:hover{
+  color: #e49b0f;
+}
+
+
 .nav-footer .nav-footer_footer-list a:hover{
-    transition: all 250ms ease-in-out;
-  }
-  
-  .nav-footer .nav-footer_footer-list a:hover{
-    color:#e49b0f;
-  }
-  
-  footer{
-    background-color:#256b3e;
-    padding: 30px 20px 35px 20px;
-    margin-top: 60px;
-    width: 100%;
-  }
-  
-  .service-container{
-    max-width: 1200px;
-    margin:0px auto;
-    display:flex;
-    text-align: center;
-    justify-content: space-between;
-  }
-  
-  .footer-main{
-    display:flex;
-    max-width: 1200px;
-    margin:0px auto;
-    justify-content: space-between;
-    color:white;
-    align-items: flex-start;
-  }
-  
-  .service-items{
-    color:#fff;
-    margin-top: 20px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  
-  .service-items .service-items_title_1 {
-    text-align: center;
-    letter-spacing: 2px;
-    opacity: 80%;
-    text-align: center;
-    color: #fff;
-    padding-top: 10px;
-  }
-  
-  .service-items .service-items_text_1 {
-    text-align: center;
-    font-size: 14px "Open Sans";
-    opacity: 70%;
-    margin-top: 3px;
-    letter-spacing: 2px;
-    font-weight: 300;
-  }
-  
-  .service-items .service-items_title_2 {
-    text-align: center;
-    letter-spacing: 2px;
-    opacity: 80%;
-    text-align: center;
-    color: #fff;
-    padding-top: 10px;
-  }
-  
-  .service-items .service-items_text_2 {
-    text-align: center;
-    font-size: 14px "Open Sans";
-    opacity: 70%;
-    margin-top: 3px;
-    letter-spacing: 2px;
-    font-weight: 300;
-  }
-  
-  .service-items .service-items_title_3 {
-    text-align: center;
-    letter-spacing: 2px;
-    opacity: 80%;
-    text-align: center;
-    color: #fff;
-    padding-top: 10px;
-  }
-  
-  .service-items .service-items_text_3 {
-    text-align: center;
-    font-size: 14px "Open Sans";
-    opacity: 70%;
-    margin-top: 3px;
-    letter-spacing: 2px;
-    font-weight: 300;
-  }
-  
-  .footer-main_container-1 .footer-title{
-        text-align: center;
-        color: #fff;
-        letter-spacing: 2px;
-  }
-  
-  
-  .nav-footer .nav-footer_footer-list{
-    list-style: none;
-    color: white;
-    margin-top: 10px;
-    line-height: 1.5em;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .footer-main_container-2 .medio-pagos{
-    text-align: center;
-    color: #fff;
-    letter-spacing: 2px;
-  }
-  
-  .payment-icons {
-    list-style: none;
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  
-  .footer-main .footer-main_container-3 .contactos-list{
-    margin-top: 10px;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #FFF;
-    line-height: 1.5em;
-  }
-  
-  
-  .footer-main_container-3 .footer-title{
-    text-align: center;
-    color: #fff;
-    letter-spacing: 2px;
-  }
-  
-  .line-1{
-    margin: 20px 0px;
-    opacity: 50%;
-  }
-  
-  .footer-copyrights {
-    color: #FFF;
-    font-size: 14px;
-    margin-left: 200px;
-  }
-  
-  .footer-claims {
-    color: #FFF;
-    font-size: 12px;
-    margin-top: 10px;
-    margin-left: 200px;
-  }
-  
-  .line-1{
-    margin: 20px 0px;
-    opacity: 50%;
-  }
-  
-  .line-2{
-    margin: 20px 0px;
-    opacity: 50%;
-  }
+  transition: all 250ms ease-in-out;
+}
+
+.nav-footer .nav-footer_footer-list a:hover{
+  color:#e49b0f;
+}
+
+footer{
+  background-color:#256b3e;
+  padding: 30px 20px 35px 20px;
+  margin-top: 60px;
+}
+
+.service-container{
+  max-width: 1200px;
+  margin:0px auto;
+  display:flex;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.footer-main{
+  display:flex;
+  max-width: 1200px;
+  margin:0px auto;
+  justify-content: space-between;
+  color:white;
+  align-items: flex-start;
+}
+
+.service-items{
+  color:#fff;
+  margin-top: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.service-items .service-items_title_1 {
+  text-align: center;
+  letter-spacing: 2px;
+  opacity: 80%;
+  text-align: center;
+  color: #fff;
+  padding-top: 10px;
+}
+
+.service-items .service-items_text_1 {
+  text-align: center;
+  font-size: 14px "Open Sans";
+  opacity: 70%;
+  margin-top: 3px;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+
+.service-items .service-items_title_2 {
+  text-align: center;
+  letter-spacing: 2px;
+  opacity: 80%;
+  text-align: center;
+  color: #fff;
+  padding-top: 10px;
+}
+
+.service-items .service-items_text_2 {
+  text-align: center;
+  font-size: 14px "Open Sans";
+  opacity: 70%;
+  margin-top: 3px;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+
+.service-items .service-items_title_3 {
+  text-align: center;
+  letter-spacing: 2px;
+  opacity: 80%;
+  text-align: center;
+  color: #fff;
+  padding-top: 10px;
+}
+
+.service-items .service-items_text_3 {
+  text-align: center;
+  font-size: 14px "Open Sans";
+  opacity: 70%;
+  margin-top: 3px;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+
+.footer-main_container-1 .footer-title{
+      text-align: center;
+      color: #fff;
+      letter-spacing: 2px;
+}
+
+
+.nav-footer .nav-footer_footer-list{
+  list-style: none;
+  color: white;
+  margin-top: 10px;
+  line-height: 1.5em;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-main_container-2 .medio-pagos{
+  text-align: center;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.payment-icons {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.footer-main .footer-main_container-3 .contactos-list{
+  margin-top: 10px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #FFF;
+  line-height: 1.5em;
+}
+
+
+.footer-main_container-3 .footer-title{
+  text-align: center;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.line-1{
+  margin: 20px 0px;
+  opacity: 50%;
+}
+
+.footer-copyrights {
+  color: #FFF;
+  font-size: 14px;
+  margin-left: 200px;
+}
+
+.footer-claims {
+  color: #FFF;
+  font-size: 12px;
+  margin-top: 10px;
+  margin-left: 200px;
+}
+
+.line-1{
+  margin: 20px 0px;
+  opacity: 50%;
+}
+
+.line-2{
+  margin: 20px 0px;
+  opacity: 50%;
+}
+
+.footer-main_container-3 .contactos-list a{
+  text-decoration: none;
+  color:white;
+}
+
 
   @media(max-width:780px){
 

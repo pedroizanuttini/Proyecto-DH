@@ -15,6 +15,7 @@ const createUser = async (req, res=response) => {
     try {
         const newUser=userContainer.createUser(req.body);
         res.render('login',{});
+
     } catch (error) {
         console.log(error);
         return error;

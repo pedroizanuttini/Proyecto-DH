@@ -407,6 +407,7 @@ footer{
   opacity: 50%;
 }
 
+
 @media(max-width:780px){
   .footer-copyrights{
       margin-left: 0px;
