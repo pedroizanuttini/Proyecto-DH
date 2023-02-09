@@ -14,17 +14,17 @@
     <main class="main">
         <section class="cart">
             <div class="cart-container">
+            <% if (product) { %>
                 <article class="cart-container__item">
                     <div class="item__image">
-                        <img src="/img/Baileys.jpg">
+                        <img src="<%=product.image%>">
                     </div>
                     <div class="item__info">
-                        <h2 class="product_title">Titulo producto</h2>
-                        <p class="info__product"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse ab saepe natus eligendi vero, nisi, repudiandae et eveniet cumque est, cum autem iste adipisci necessitatibus!.</p>
-                        <p class="info__size">Precio: Testing </p>
-                        <p class="info__price">Tamano : Testing</p>
-                        <p class="info__categoria">Categoria: Testing</p>
-                        <p class="info__tipo">Tipo: Testing</p>
+                        <h2 class="product_title"><%=product.name %></h2>
+                        <p class="info__product">Descripcion: <%=product.description %></p>
+                        <p class="info__size">Precio:<%= product.price %> </p>
+                        <p class="info__categoria"><%= product.category %></p>
+                        <p class="info__tipo">Tipo: Alcohol</p>
                         <div class="info__qty">
                             <p class="info__quantity">Cantidad</p>
                             <button class="qty__count">-</button>
@@ -38,6 +38,7 @@
                     </button>
                     </div>
                 </article>
+            <% } %>
             </div>
             <h2 class="cart-title">Descripcion producto</h2>
             <div class="cart-description">

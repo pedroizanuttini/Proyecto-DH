@@ -22,8 +22,10 @@ const showProductsFormEdit = async (req, res=response) => {
     }
 }
 
-const showProductDetail = (req, res=response) => {
-    res.render('./products/productDetails',{});
+const showProductDetail = async(req, res=response) => {    //Chequear si esta bien.
+    const {id} =req.params;
+    const product = await container.getProductById(id);
+    res.render('./products/productDetails',{ product });
 }
 
 

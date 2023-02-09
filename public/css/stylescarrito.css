@@ -19,6 +19,7 @@ body{
   width: 100%;
 }
 
+
 .button-primary{
   border: 2px solid var(--primary-color);
   background-color: var(--primary-color);
@@ -47,6 +48,7 @@ body{
   height: 100%;
   object-fit: cover;
 }
+
 
 .main-header__nav i{
   cursor: pointer;
@@ -406,7 +408,6 @@ footer{
   margin: 20px 0px;
   opacity: 50%;
 }
-
 
 @media(max-width:780px){
   .footer-copyrights{
