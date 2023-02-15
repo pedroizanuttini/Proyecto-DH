@@ -28,16 +28,23 @@
         </nav>
     </header>
     <main>
-    <form class="form" action="/register" method="get">
+    <form class="form" action="http://localhost:3000/auth/new" method="POST" enctype="multipart/form-data">
             <section class="form-register">
                 <h2>Creá tu cuenta</h2>
-                <label class="rotulos" for="nombre">Usuario</label>
-                <input class="controls" type="text" name="nombreUsuario" id="nombre" placeholder="escribe tu nombre" required>
+                <label class="rotulos" for="nombre">Nombre</label>
+                <input class="controls" type="text" name="fname" id="nombre" placeholder="escribe tu nombre" required>
+                
+                <label class="rotulos" for="nombre">Apellido</label>
+                <input class="controls" type="text" name="lname" id="nombre" placeholder="escribe tu nombre" required>
+
+                <label class="rotulos" for="avatar">Foto de perfil</label>
+                <input class="controls" type="file" name="avatar" id="avatar" required>
+                
                 <label class="rotulos" for="email">Email</label>
                 <input class="controls" type="email" name="email" id="email" placeholder="escribe tu email" required>
                 <label class="rotulos" for="password">Clave</label>
-                <input class="controls" type="password" name="clave" id="clave" placeholder="escribe tu clave"required>
-                <label><input class="check" type="checkbox" name="aceptar" value="si">Acepto los<a href="#">términos y condiciones.</a></label>
+                <input class="controls" type="password" name="password" id="clave" placeholder="escribe tu clave"required>
+                <label><input class="check" type="checkbox" name="aceptar"> Acepto los<a href="#"> términos y condiciones.</a></label>
                 <input class="botons" type="submit" value="Registrarme">
             </section>
         </form>

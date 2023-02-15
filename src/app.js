@@ -1,5 +1,6 @@
 const express= require('express');
 const path = require('path');
+const cookieParser = require('cookie-parser');
 
 class App {
 
@@ -30,6 +31,9 @@ class App {
 
         // parseo del body JSON ---> jasvascript
         this.app.use(express.urlencoded({ extended: true }));
+
+        // parseo de las cookies
+        this.app.use(cookieParser());
 
         // directorio publico
         this.app.use(express.static('public'));

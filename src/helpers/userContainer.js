@@ -35,6 +35,21 @@ class UserContainer{
     }
 
 
+    async getUserByEmail(email){
+        try {
+            const users = await this.getAllUsers();
+            const result = users.find( user => user.email === email );
+
+            return result;
+
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+
+    }
+
+
 
 
 }
