@@ -17,15 +17,38 @@ const showLogin = (req, res=response) => {
 }
 
 const showRegister = (req, res=response) => {
-    res.render('register',{});
+    res.render('register',{error:null});
 }
 
 // funcion para crear un usuario 
 const createUser = async (req, res=response) => {
 
     console.log(req.file, req.body)
-    const user = {...req.body,avatar:`${req.file.destination}/${req.file.filename}.png`}
+
+    const types = ['jpg','png','jpeg'];
+    const arrayFileName = req.file.originalname.split('.');   //Divide un string de acuerdo a una condicion
+    const extension = arrayFileName[arrayFileName.length - 1];
+    const extensionResult = types.includes(extension);
+    
+    if(!extensionResult){
+        return res.render('register',{error:`${extension} no es una extensión permitida, las extensiones válidas son:${types}`})
+        // return res.status(400).json({
+        //     ok:false,
+        //     error: `${extension} no es una extensión permitida, las extensiones válidas son:${types}`
+        // })
+    }
+
+    const user = {...req.body,avatar:`${req.file.destination}/${req.file.filename}.${extension}`}
+    
     try {
+        const emailExist = userContainer.getUserByEmail(user.email);
+        if(emailExist){
+            return res.render('register',{error:`${user.email} ya se encuentra vinculado a un usuario existente`})
+            // return res.status(400).json({
+            //     ok:false,
+            //     error: `${user.email} ya se encuentra vinculado a un usuario existente`
+            // })
+        }
 
         // encriptar la contraseña con bcrypt
         const salt = bcrypt.genSaltSync();  

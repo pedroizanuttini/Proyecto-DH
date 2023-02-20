@@ -106,6 +106,14 @@ main{
     text-align: center;
 }
 
+.form-register .error-message{
+    background-color: #fca5a5;
+    color: #991b1b;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px;
+}
+
 .form-register .rotulos{
     font-weight: bold;
     font-size: 16px;

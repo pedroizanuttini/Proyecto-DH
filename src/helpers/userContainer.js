@@ -46,11 +46,7 @@ class UserContainer{
             console.log(error);
             return null;
         }
-
     }
-
-
-
 
 }
 

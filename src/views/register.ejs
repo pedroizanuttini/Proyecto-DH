@@ -31,6 +31,9 @@
     <form class="form" action="http://localhost:3000/auth/new" method="POST" enctype="multipart/form-data">
             <section class="form-register">
                 <h2>Creá tu cuenta</h2>
+                <% if (error) { %>
+                    <p class="error-message">*<%= error %></p>
+                <% } %>
                 <label class="rotulos" for="nombre">Nombre</label>
                 <input class="controls" type="text" name="fname" id="nombre" placeholder="escribe tu nombre" required>
                 
