@@ -1,4 +1,8 @@
 const { response } = require('express')
+const path = require('path');
+const fs = require('fs');
+const filePath = path.join(__dirname, `../data/products.json`);
+
 const { Container } = require('../helpers/container');
 
 const container = new Container('products.json');
@@ -23,70 +27,102 @@ const showProductsFormEdit = async (req, res=response) => {
 }
 
 const showProductDetail = async(req, res=response) => {    //Chequear si esta bien.
+
     const {id} =req.params;
-    const product = await container.getProductById(id);
-    res.render('./products/productDetails',{ product });
+    try {
+        //me traigo todos los productos
+        const data = await fs.promises.readFile(this.filePath, 'utf-8');  
+        const products = await JSON.parse(data);
+        const product = products.find( el => el.id == id);
+        res.render('./products/productDetails',{ product });
+        
+
+    } catch (error) {
+        return res.status(400).json({
+            error:'Producto no encontrado'
+        })
+    }
 }
 
 
 //http://localhost:3000/products
 const createProduct = async (req, res=response) => {
+    try {
+        //me traigo todos los productos
+        const data = await fs.promises.readFile(this.filePath, 'utf-8');  
+        const products = await JSON.parse(data);
+        const newProduct = req.body;
+        newProduct.id = products.length + 1;  //Creo un id en el producto.
+        newProduct.price = parseInt(newProduct.price);
+        products.push(newProduct);
+        // hace la incripcion en el json con el nuevo array que contiene el producto nuevo que quiero agregar
+        await fs.promises.writeFile(filePath, JSON.stringify(products));
 
-    const result = await container.createProduct(req.body);
-    const products = await container.getAllProducts();
-    
-    if(result){
-        // return res.status(200).json({
-        //     ok: true,
-        //     data: result
-        // });
         return res.render('./products/productslist',{ products });
-    }else {
-        // return res.status(500).json({
-        //     ok: false,
-        //     message: 'Error en servidor'
-        // });
+    } catch (error) {
         res.render('./products/productsform',{product:null});
     }
 }
 
 const updateProduct = async (req, res=response) => {
-
     console.log(req.params);
+    const prodUpdate = req.body
+    const { id } = req.params
+    try {
+        //me traigo todos los productos
+        const data = await fs.promises.readFile(this.filePath, 'utf-8');  
+        const products = await JSON.parse(data);
 
-    const result = await container.updateProduct(req.params.id, req.body);
-    const products = await container.getAllProducts();
-    if (result){
-        // return res.status(200).json({
-        //     ok:true,
-        //     data: result
-        // })
-        return res.render('./products/productslist',{ products });
+        if( products.some( prod => prod.id == id ) ){  //Some devuelve lo que se esta preguntando. Devuelve un booleano True o False.
+            const newArrayProducts = products.map( prod => { //Map recorre uno a uno los elementos y los va retornando. Devuelve misma cantidad de elementos si uno no pone nada.
+                if(prod.id == id){
+                    prodUpdate.id = parseInt(id);    //Todo lo que viene por req params es un string, por eso lo paso a Integer(entero).
+                    return prodUpdate;
+                }
+                return prod;
+            });
+
+            await fs.promises.writeFile(filePath, JSON.stringify(newArrayProducts));
+
+            return res.render('./products/productslist',{ newArrayProducts });
+        }
+        else{
+            
+            return res.render('./products/productslist',{ products });
+        }
+        
+    } catch (error) {
+        console.log(error);
     }
-    else{
-        // return res.status(500).json({
-        //     ok:false,
-        //     message: 'Error en el servidor'
-        // })
-        return res.render('./products/productslist',{ products });
-    }
+
 }
 
 const deleteProduct = async (req, res=response) => {
-    const result= await container.deleteProductById(req.params.id);
-    if (result){
-        // return res.status(200).json({
-        //     ok:true,
-        //     data: result
-        // })
-        return res.render('./products/productslist',{ products: result });
-    }else{
-        // return res.status(500).json({
-        //     ok:false,
-        //     message: 'Error en el servidor'
-        // })
-        return res.render('./products/productslist',{ products: result });
+
+    const { id } = req.params;
+
+    try {
+        //me traigo todos los productos
+        const data = await fs.promises.readFile(this.filePath, 'utf-8');  
+        const products = await JSON.parse(data);
+        
+        if( products.some( prod => prod.id == id ) ){
+            const newArrayProducts = products.filter( prod => prod.id != id );    //Filtra(devuelve) el array de acuerdo a la condicion dada.
+            await fs.promises.writeFile(filePath, JSON.stringify(newArrayProducts));
+
+            return res.render('./products/productslist',{ products: newArrayProducts });
+        }else{
+            // return res.status(500).json({
+            //     ok:false,
+            //     message: 'Error en el servidor'
+            // })
+            return res.render('./products/productslist',{ products });
+        }
+
+    } catch (error) {
+        console.error(error);
     }
+
     
     
     
