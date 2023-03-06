@@ -3,35 +3,34 @@ const path = require('path');
 const fs = require('fs');
 const filePath = path.join(__dirname, `../data/products.json`);
 
-const { Container } = require('../helpers/container');
-
-const container = new Container('products.json');
-
-const showProducts = async (req, res=response) => {
-    const products = await container.getAllProducts();
+const showProducts = async (req, res=response) => {      
+    const data = await fs.promises.readFile(filePath, 'utf-8');  
+    const products = await JSON.parse(data);
     console.log(products);
     res.render('./products/productslist',{ products });
 }
 
 // se usa para mostrar el formulario de creacion y el formulario de edicion
-//http://localhost:3000/products/new  OR  //http://localhost:3000/products/:id/edit
+//http://localhost:3000/products/new  OR  //http://localhost:3000/products/:id/edit    //Preguntar si esta bien.
 const showProductsFormEdit = async (req, res=response) => {
     const { id } = req.params;  //el request params es todo lo que esta con :.  Las llaves lo que hace es desestructurar una propiedad de un request params (parametros)
     
     if(id){// para editar
-        const product = await container.getProductById(id);
+        const data = await fs.promises.readFile(filePath, 'utf-8');  
+        const products = await JSON.parse(data);
+        const product = products.find( el => el.id == id);
         res.render('./products/productsform',{ product });
     }else{// para crear
         res.render('./products/productsform',{product:null});
     }
 }
 
-const showProductDetail = async(req, res=response) => {    //Chequear si esta bien.
+const showProductDetail = async(req, res=response) => {    
 
     const {id} =req.params;
     try {
         //me traigo todos los productos
-        const data = await fs.promises.readFile(this.filePath, 'utf-8');  
+        const data = await fs.promises.readFile(filePath, 'utf-8');  
         const products = await JSON.parse(data);
         const product = products.find( el => el.id == id);
         res.render('./products/productDetails',{ product });
@@ -49,7 +48,7 @@ const showProductDetail = async(req, res=response) => {    //Chequear si esta bi
 const createProduct = async (req, res=response) => {
     try {
         //me traigo todos los productos
-        const data = await fs.promises.readFile(this.filePath, 'utf-8');  
+        const data = await fs.promises.readFile(filePath, 'utf-8');  
         const products = await JSON.parse(data);
         const newProduct = req.body;
         newProduct.id = products.length + 1;  //Creo un id en el producto.
@@ -70,7 +69,7 @@ const updateProduct = async (req, res=response) => {
     const { id } = req.params
     try {
         //me traigo todos los productos
-        const data = await fs.promises.readFile(this.filePath, 'utf-8');  
+        const data = await fs.promises.readFile(filePath, 'utf-8');  
         const products = await JSON.parse(data);
 
         if( products.some( prod => prod.id == id ) ){  //Some devuelve lo que se esta preguntando. Devuelve un booleano True o False.
@@ -103,7 +102,7 @@ const deleteProduct = async (req, res=response) => {
 
     try {
         //me traigo todos los productos
-        const data = await fs.promises.readFile(this.filePath, 'utf-8');  
+        const data = await fs.promises.readFile(filePath, 'utf-8');  
         const products = await JSON.parse(data);
         
         if( products.some( prod => prod.id == id ) ){
