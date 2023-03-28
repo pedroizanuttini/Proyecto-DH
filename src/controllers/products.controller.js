@@ -3,6 +3,8 @@ const path = require('path');
 const fs = require('fs');
 const filePath = path.join(__dirname, `../data/products.json`);
 
+const Product = require('../models/product.model');
+
 const showProducts = async (req, res=response) => {      
     const data = await fs.promises.readFile(filePath, 'utf-8');  
     const products = await JSON.parse(data);
@@ -11,7 +13,7 @@ const showProducts = async (req, res=response) => {
 }
 
 // se usa para mostrar el formulario de creacion y el formulario de edicion
-//http://localhost:3000/products/new  OR  //http://localhost:3000/products/:id/edit    //Preguntar si esta bien.
+//http://localhost:3000/products/new  OR  //http://localhost:3000/products/:id/edit  
 const showProductsFormEdit = async (req, res=response) => {
     const { id } = req.params;  //el request params es todo lo que esta con :.  Las llaves lo que hace es desestructurar una propiedad de un request params (parametros)
     

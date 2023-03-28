@@ -3,6 +3,10 @@ const bcrypt = require('bcrypt');
 const path = require('path');
 const fs = require('fs');
 
+const User = require('../models/user.model');
+const Role = require('../models/role.model')
+
+
 const filePath = path.join(__dirname, `../data/users.json`);
 
 const showLogin = (req, res = response) => {
@@ -24,7 +28,11 @@ const showRegister = (req, res = response) => {
 // funcion para crear un usuario 
 const createUser = async (req, res = response) => {
 
-    console.log(req.file, req.body)
+    console.log(req.file, req.body);
+
+    const image = fs.readFileSync(req.file.path);
+    // convertir a base64
+    const imageBase64 = image.toString('base64');
 
     const types = ['jpg', 'png', 'jpeg'];
     const arrayFileName = req.file.originalname.split('.');   //Divide un string de acuerdo a una condicion
@@ -39,28 +47,27 @@ const createUser = async (req, res = response) => {
         // })
     }
 
-    const user = { ...req.body, avatar: `${req.file.destination}/${req.file.filename}.${extension}` }
+    // const user = { ...req.body, avatar: `${req.file.destination}/${req.file.filename}.${extension}` }
+    const user = { ...req.body, avatar: imageBase64 }
 
     try {
-        // Me traigo todos los usuarios existentes
-        const data = await fs.promises.readFile(filePath, 'utf-8');
-        const users = await JSON.parse(data);
+        // validar Role
+        const role = await Role.findOne({ where:{ name:req.body.role } })
+        if(!role) return res.json({ error:'El role no existe' })
 
-        const emailExist = users.some( el => el.email ===  user.email); //El some te devuelve un booleano para saber si tengo un elemento en el array.
-        if (emailExist) {
-            return res.render('register', { error: `${user.email} ya se encuentra vinculado a un usuario existente` })
-            // return res.status(400).json({
-            //     ok:false,
-            //     error: `${user.email} ya se encuentra vinculado a un usuario existente`
-            // })
-        }
         // encriptar la contraseña con bcrypt
         const salt = bcrypt.genSaltSync();
         user.password = bcrypt.hashSync(user.password, salt)
 
-        user.id = users.length + 1;
-        users.push(user);
-        await fs.promises.writeFile(filePath, JSON.stringify(users));
+        console.log('ID DEL ROLE',role.id)
+
+        const newUser = await User.create({
+            ...user,
+            role: role.id,
+        });
+        console.log('usuario creado: ',newUser)
+
+        fs.unlinkSync(req.file.path);
 
         res.render('login', { user: null });
 
@@ -70,16 +77,15 @@ const createUser = async (req, res = response) => {
     }
 }
 
-const login = async (req, res = response) => { // se encarga de ver si el mail y password son correctos
+const login = async (req, res = response) => { // se encarga de ver si el email y password son correctos
 
     const { email, password, reminder } = req.body;
     console.log(req.body)
     try {
-        // me traigo todos los usuarios del json
-        const data = await fs.promises.readFile(filePath, 'utf-8');
-        const users = await JSON.parse(data);
+        
         // consulto por un usuario con el email que se ingreso en el body
-        const user = await users.find( el => el.email === email);
+        // const user = await users.find( el => el.email === email);
+        const user = await User.findOne({ where:{email} });
         // verifico si existe un usuario con ese email, en caso contrario retorno la misma pagina de login pero con un mensaje de error
         if (!user) {
             return res.render('login', { user: null, errorMsg: 'Credenciales incorrectas' });

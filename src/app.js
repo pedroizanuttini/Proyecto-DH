@@ -1,5 +1,7 @@
 const express= require('express');
 const path = require('path');
+const db = require('./data/config');
+const Role = require('./models/role.model');
 const cookieParser = require('cookie-parser');
 
 class App {
@@ -17,13 +19,34 @@ class App {
         this.app = express();
         this.port = 3000;
 
+        // conexion con base de datos
+        this.connectDDBB();
         // ejecucion de middlewares
         this.middlewares();
         // ejecucion de rutas
         this.routes();
         // ejecucion de motor de plantillas
         this.views();
-    }   
+    }
+    
+    async connectDDBB(){
+        try {
+            await db.authenticate();
+            await db.sync({ force:false }).then(()=>{
+                // console.log('Roles table created successfully');
+                // const roles = [ 'ADMIN_ROLE','USER_ROLE' ];
+                // roles.forEach((role)=>{
+                //     Role.create({name:role})
+                // })
+            
+            }).catch((error)=>{
+                console.error('Unable to create table: ', error);
+            })
+            console.log('Connection has been established successfully.');
+          } catch (error) {
+            console.error('Unable to connect to the database:', error);
+          }
+    }
 
     middlewares(){
         // lectura del body
