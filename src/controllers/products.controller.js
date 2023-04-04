@@ -21,9 +21,9 @@ const showProductsFormEdit = async (req, res=response) => {
         const data = await fs.promises.readFile(filePath, 'utf-8');  
         const products = await JSON.parse(data);
         const product = products.find( el => el.id == id);
-        res.render('./products/productsform',{ product });
+        res.render('./products/productsform',{ product,error:null });
     }else{// para crear
-        res.render('./products/productsform',{product:null});
+        res.render('./products/productsform',{product:null,error:null});
     }
 }
 
@@ -48,21 +48,38 @@ const showProductDetail = async(req, res=response) => {
 
 //http://localhost:3000/products
 const createProduct = async (req, res=response) => {
-    try {
-        //me traigo todos los productos
-        const data = await fs.promises.readFile(filePath, 'utf-8');  
-        const products = await JSON.parse(data);
-        const newProduct = req.body;
-        newProduct.id = products.length + 1;  //Creo un id en el producto.
-        newProduct.price = parseInt(newProduct.price);
-        products.push(newProduct);
-        // hace la incripcion en el json con el nuevo array que contiene el producto nuevo que quiero agregar
-        await fs.promises.writeFile(filePath, JSON.stringify(products));
 
-        return res.render('./products/productslist',{ products });
-    } catch (error) {
-        res.render('./products/productsform',{product:null});
+    const image = fs.readFileSync(req.file.path);
+    // convertir a base64
+    const imageBase64 = image.toString('base64');
+    
+    const types = ['jpg', 'png', 'jpeg'];
+    const arrayFileName = req.file.originalname.split('.');   //Divide un string de acuerdo a una condicion
+    const extension = arrayFileName[arrayFileName.length - 1]; // ['c','documents','hefefgrwg6g1rw6g',<'jpg'>] // Obtengo la extension del archivo
+    const extensionResult = types.includes(extension); // types.includes.includes('jpeg') ---> devuelve es un boolean
+
+    if (!extensionResult) {
+        return res.render('productsform', { product:null,error: `${extension} no es una extensión permitida, las extensiones válidas son:${types}` })
+        // return res.status(400).json({
+        //     ok:false,
+        //     error: `${extension} no es una extensión permitida, las extensiones válidas son:${types}`
+        // })
     }
+
+    const product = { ...req.body, image: imageBase64 }
+    console.log(product);
+    try {
+        
+       product.price = parseInt(product.price);
+       const newProduct = await Product.create(product);
+      
+       fs.unlinkSync(req.file.path); 
+
+       return res.redirect('/products');
+   } catch (error) {
+    console.log(error);
+       res.render('./products/productsform',{product:null, error});
+   }
 }
 
 const updateProduct = async (req, res=response) => {

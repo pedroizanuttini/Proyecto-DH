@@ -18,6 +18,11 @@ const Product = require('../models/product.model');
 const Category = require('../models/category.model');
 const Role = require('../models/role.model');
 
+User.belongsTo(Role);
+Product.belongsTo(Category);
+
+
+
 // User.associate = (models) => {
 //   User.belongsToMany(models.Role,{
 //     foreignKey:'roleId',
@@ -37,3 +42,15 @@ const Role = require('../models/role.model');
 //   foreignKey:'categoryId',
 //   as:"category"
 // })
+
+
+// User.associate = (models) => {
+//   User.belongsTo(models.Role, {
+//       foreignKey: 'roleId',
+//       as: "role"
+//   })
+// }
+
+// Role.associate = (models) => {
+//   Role.hasMany(models.User);
+// }

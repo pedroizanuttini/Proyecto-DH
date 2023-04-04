@@ -10,9 +10,7 @@ const Role = db.define("roles",{
     
 });
 
-Role.associate = (models) => {
-    Role.hasMany(models.User);
-}
+
 
 
 module.exports = Role;

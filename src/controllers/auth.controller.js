@@ -63,7 +63,7 @@ const createUser = async (req, res = response) => {
 
         const newUser = await User.create({
             ...user,
-            role: role.id,
+            roleId: role.id,
         });
         console.log('usuario creado: ',newUser)
 
