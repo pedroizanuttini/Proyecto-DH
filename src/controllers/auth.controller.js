@@ -31,13 +31,14 @@ const createUser = async (req, res = response) => {
     console.log(req.file, req.body);
 
     const image = fs.readFileSync(req.file.path);
+    
     // convertir a base64
     const imageBase64 = image.toString('base64');
 
     const types = ['jpg', 'png', 'jpeg'];
     const arrayFileName = req.file.originalname.split('.');   //Divide un string de acuerdo a una condicion
-    const extension = arrayFileName[arrayFileName.length - 1];
-    const extensionResult = types.includes(extension);
+    const extension = arrayFileName[arrayFileName.length - 1]; 
+    const extensionResult = types.includes(extension); 
 
     if (!extensionResult) {
         return res.render('register', { error: `${extension} no es una extensión permitida, las extensiones válidas son:${types}` })

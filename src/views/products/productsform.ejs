@@ -36,7 +36,17 @@
     
                     <div class="form-group">
                         <label for="category">Categoría: </label>
-                        <input value=<%= product.category %> id="category" name="category" class="form-group__input" type="text">
+                        <select id="category" name="categoryId" class="form-group__input">
+                            <% categories.forEach(category => { %>
+                                <option  
+                                    value=<%=category.id%>
+                                    selected=<%= product.categoryId === category.id %>
+                                > 
+                                    <%=category.name%> 
+                                </option>
+                            <% }) %>
+                            
+                        </select>    
                     </div>
     
                     <div class="form-group">
@@ -46,7 +56,7 @@
 
                     <div class="form-group">
                         <label for="stock">Stock: </label>
-                        <input id="stock" name="stock" class="form-group__input" type="number">
+                        <input id="stock" value=<%= product.stock %> name="stock" class="form-group__input" type="number">
                     </div>
 
                     <button type="submit">
@@ -81,10 +91,12 @@
     
                     <div class="form-group">
                         <label for="category">Categoría: </label>
-                        <select id="category" name="category" class="form-group__input">
-                            <option value="">Espumante</option>
-                            <option value="">Vino</option>
-                            <option value="">Cerveza</option>
+                        <select id="category" name="categoryId" class="form-group__input">
+                            <option selected disabled value="">Seleccionar categoria</option>
+                            <% categories.forEach(category => { %>
+                                <option value=<%=category.id%> > <%=category.name%> </option>
+                            <% }) %>
+                            
                         </select>    
                     </div>
     

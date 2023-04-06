@@ -2,6 +2,7 @@ const express= require('express');
 const path = require('path');
 const db = require('./data/config');
 const Role = require('./models/role.model');
+const Category = require('./models/category.model');
 const cookieParser = require('cookie-parser');
 
 class App {
@@ -38,6 +39,8 @@ class App {
                 // roles.forEach((role)=>{
                 //     Role.create({name:role})
                 // })
+                // const categories = ['espumante','vino','cerveza']
+                // categories.forEach((role)=>Category.create({name:role}));
             
             }).catch((error)=>{
                 console.error('Unable to create table: ', error);

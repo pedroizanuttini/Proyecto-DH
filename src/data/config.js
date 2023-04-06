@@ -20,6 +20,7 @@ const Role = require('../models/role.model');
 
 User.belongsTo(Role);
 Product.belongsTo(Category);
+Category.hasMany(Product);
 
 
 

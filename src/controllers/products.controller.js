@@ -4,6 +4,7 @@ const fs = require('fs');
 const filePath = path.join(__dirname, `../data/products.json`);
 
 const Product = require('../models/product.model');
+const Category = require('../models/category.model');
 
 const showProducts = async (req, res=response) => {      
     const data = await fs.promises.readFile(filePath, 'utf-8');  
@@ -17,14 +18,26 @@ const showProducts = async (req, res=response) => {
 const showProductsFormEdit = async (req, res=response) => {
     const { id } = req.params;  //el request params es todo lo que esta con :.  Las llaves lo que hace es desestructurar una propiedad de un request params (parametros)
     
-    if(id){// para editar
-        const data = await fs.promises.readFile(filePath, 'utf-8');  
-        const products = await JSON.parse(data);
-        const product = products.find( el => el.id == id);
-        res.render('./products/productsform',{ product,error:null });
-    }else{// para crear
-        res.render('./products/productsform',{product:null,error:null});
+    try {
+
+        const categories = await Category.findAll(); 
+
+        if(id){// para editar
+            const product = await Product.findByPk(id);
+            res.render('./products/productsform',{ product,error:null, categories });
+        }else{// para crear
+            res.render('./products/productsform',{product:null,error:null, categories});
+        }
+
+        
+    } catch (error) {
+        return res.status(500).json({
+            error:'Internal server error'
+        })
     }
+
+
+    
 }
 
 const showProductDetail = async(req, res=response) => {    
