@@ -7,10 +7,18 @@ const Product = require('../models/product.model');
 const Category = require('../models/category.model');
 
 const showProducts = async (req, res=response) => {      
-    const data = await fs.promises.readFile(filePath, 'utf-8');  
-    const products = await JSON.parse(data);
-    console.log(products);
-    res.render('./products/productslist',{ products });
+   
+    try {
+       const products = await Product.findAll({ include: Category }); 
+
+       return res.render('./products/productslist',{ products });
+
+    } catch (error) {
+         return res.status(500).json({
+            error:'Internal server error'
+        })
+    }
+
 }
 
 // se usa para mostrar el formulario de creacion y el formulario de edicion
@@ -65,7 +73,7 @@ const createProduct = async (req, res=response) => {
     const image = fs.readFileSync(req.file.path);
     // convertir a base64
     const imageBase64 = image.toString('base64');
-    
+    console.log('base64: ',imageBase64)
     const types = ['jpg', 'png', 'jpeg'];
     const arrayFileName = req.file.originalname.split('.');   //Divide un string de acuerdo a una condicion
     const extension = arrayFileName[arrayFileName.length - 1]; // ['c','documents','hefefgrwg6g1rw6g',<'jpg'>] // Obtengo la extension del archivo
@@ -80,7 +88,6 @@ const createProduct = async (req, res=response) => {
     }
 
     const product = { ...req.body, image: imageBase64 }
-    console.log(product);
     try {
         
        product.price = parseInt(product.price);

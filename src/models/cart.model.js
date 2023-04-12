@@ -13,4 +13,4 @@ const Cart = db.define("cart",{
 
 
 
-module.exports = Order;
+module.exports = Cart;

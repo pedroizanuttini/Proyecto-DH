@@ -19,13 +19,13 @@
                         <% products.forEach(prod=> { %>
                             <article class="cart-container__item">
                                 <div class="item__image">
-                                    <img src="<%=prod.image%>" >
+                                    <img src="data:image/jpg;base64,<%=prod.image%>" >
                                 </div>
 
                                 <div class="item__info">
                                     <h3 class="info__title">Nombre: <%=prod.name %> </h3>
                                     <p class="info__size">Descripcion: <%=prod.description %></p>
-                                    <p class="info__price">Categoria: <%= prod.category %></p>
+                                    <p class="info__price">Categoria: <%= prod.category.dataValues.name %></p>
                                     <p class="info__price">Precio: <%= prod.price %></p>
                                     <div class="info__qty">
                                         <button class="qty__count">-</button>
