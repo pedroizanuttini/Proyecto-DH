@@ -1,28 +1,33 @@
 const { response } = require('express');
 const bcrypt = require('bcrypt');
-const path = require('path');
 const fs = require('fs');
-
-const User = require('../models/user.model');
-const Role = require('../models/role.model')
-
-
-const filePath = path.join(__dirname, `../data/users.json`);
+const User = require('../database/models/User');
+const Role = require('../database/models/Role')
 
 const showLogin = (req, res = response) => {
 
     console.log(req.cookies);
     // si en las cookies ya existe la informacion del usuario
-    if (req.cookies.user) {
-        return res.render('login', { user: req.cookies.user });
+    try{
+        if (req.cookies.user) {
+            return res.render('login', { user: req.cookies.user });
+        }
+    
+        // si el usuario nunca antes se logueo o no selecciono el check de "recordar usuario"
+        return res.render('login', { user: null });
+    } catch(error){
+        return res.redirect('/vista404')
     }
-
-    // si el usuario nunca antes se logueo o no selecciono el check de "recordar usuario"
-    return res.render('login', { user: null });
+    
 }
 
 const showRegister = (req, res = response) => {
-    res.render('register', { error: null });
+    try{
+        res.render('register', { error: null });        
+    }
+    catch(error){
+        return res.redirect('vistaerror')
+    }
 }
 
 // funcion para crear un usuario 
@@ -30,31 +35,36 @@ const createUser = async (req, res = response) => {
 
     console.log(req.file, req.body);
 
-    const image = fs.readFileSync(req.file.path);
+    // const image = fs.readFileSync(req.file.path);
     
-    // convertir a base64
-    const imageBase64 = image.toString('base64');
+    // // convertir a base64
+    // const imageBase64 = image.toString('base64');
 
-    const types = ['jpg', 'png', 'jpeg'];
-    const arrayFileName = req.file.originalname.split('.');   //Divide un string de acuerdo a una condicion
-    const extension = arrayFileName[arrayFileName.length - 1]; 
-    const extensionResult = types.includes(extension); 
+    // const types = ['jpg', 'png', 'jpeg'];
+    // const arrayFileName = req.file.originalname.split('.');   //Divide un string de acuerdo a una condicion
+    // const extension = arrayFileName[arrayFileName.length - 1]; 
+    // const extensionResult = types.includes(extension); 
 
-    if (!extensionResult) {
-        return res.render('register', { error: `${extension} no es una extensión permitida, las extensiones válidas son:${types}` })
-        // return res.status(400).json({
-        //     ok:false,
-        //     error: `${extension} no es una extensión permitida, las extensiones válidas son:${types}`
-        // })
-    }
+    // if (!extensionResult) {
+    //     return res.render('register', { error: `${extension} no es una extensión permitida, las extensiones válidas son:${types}` })
+    //     // return res.status(400).json({
+    //     //     ok:false,
+    //     //     error: `${extension} no es una extensión permitida, las extensiones válidas son:${types}`
+    //     // })
+    // }
 
     // const user = { ...req.body, avatar: `${req.file.destination}/${req.file.filename}.${extension}` }
     const user = { ...req.body, avatar: imageBase64 }
 
     try {
+        // validar email único
+        const emailExist = await User.findOne({ where: {email:req.body.email} });
+        if(emailExist) return res.json({error:'El email ingresado ya existe'});
+        
         // validar Role
         const role = await Role.findOne({ where:{ name:req.body.role } })
         if(!role) return res.json({ error:'El role no existe' })
+
 
         // encriptar la contraseña con bcrypt
         const salt = bcrypt.genSaltSync();

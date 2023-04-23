@@ -36,7 +36,7 @@
     
                     <div class="form-group">
                         <label for="category">Categoría: </label>
-                        <select id="category" name="categoryId" class="form-group__input">
+                        <select id="category" name="category_id" class="form-group__input">
                             <% categories.forEach(category => { %>
                                 <option  
                                     value=<%=category.id%>
@@ -91,7 +91,7 @@
     
                     <div class="form-group">
                         <label for="category">Categoría: </label>
-                        <select id="category" name="categoryId" class="form-group__input">
+                        <select id="category" name="category_id" class="form-group__input">
                             <option selected disabled value="">Seleccionar categoria</option>
                             <% categories.forEach(category => { %>
                                 <option value=<%=category.id%> > <%=category.name%> </option>
@@ -109,6 +109,11 @@
                         <label for="stock">Stock: </label>
                         <input id="stock" name="stock" class="form-group__input" type="number">
                     </div>
+                    <div class="form-group">
+                        <label for="discount">Discount: </label>
+                        <input id="discount" name="discount" class="form-group__input" type="number">
+                    </div>
+
 
                     <button type="submit">
                         Agregar producto
