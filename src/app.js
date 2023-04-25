@@ -1,22 +1,28 @@
-const express= require('express');
+const express = require('express');
 const path = require('path');
 const db = require('./database/config/config');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 
+//app.use(session({
+//     secret: "Shhh, it's a secret",
+//     resave: false,
+//     saveUninnitialized: false,
+// }))
 
 class App {
 
     app;
     port;
     apiPaths = {
-        home:'/home',
-        cart:'/cart',
-        auth:'/auth',
-        products:'/products'
+        home: '/home',
+        cart: '/cart',
+        auth: '/auth',
+        products: '/products'
     };
-    
-    constructor(){
+
+    constructor() {
         this.app = express();
         this.port = 3000;
 
@@ -29,7 +35,7 @@ class App {
         // ejecucion de motor de plantillas
         this.views();
     }
-    
+
     // async connectDDBB(){
     //     try {
     //         await db.authenticate();
@@ -41,7 +47,7 @@ class App {
     //             // })
     //             // const categories = ['espumante','vino','cerveza']
     //             // categories.forEach((role)=>Category.create({name:role}));
-            
+
     //         }).catch((error)=>{
     //             console.error('Unable to create table: ', error);
     //         })
@@ -51,7 +57,7 @@ class App {
     //       }
     // }
 
-    middlewares(){
+    middlewares() {
         // parseo del body JSON ---> jasvascript
         this.app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -63,25 +69,32 @@ class App {
 
         // directorio publico
         this.app.use(express.static('public'));
+
+        // express session
+        this.app.use(session({
+            secret: "Shhh, it's a secret",
+            resave: false,
+            saveUninnitialized: false,
+        }));
     }
 
-    routes(){
+    routes() {
         this.app.use(this.apiPaths.home, require('./routes/index.routes'));
         this.app.use(this.apiPaths.auth, require('./routes/auth.routes'));
-        this.app.use(this.apiPaths.cart, require ('./routes/carrito.routes'));
+        this.app.use(this.apiPaths.cart, require('./routes/carrito.routes'));
         this.app.use(this.apiPaths.products, require('./routes/products.routes'));
     }
 
-    
-    views(){
+
+    views() {
         // ubicacion de las vistas
         this.app.set("views", path.join(__dirname, "./views"));
         // definicion del motor de plantillas
         this.app.set("view engine", "ejs");
     }
 
-    listen(){
-        this.app.listen(this.port, ()=>{
+    listen() {
+        this.app.listen(this.port, () => {
             console.log(`Servidor corriendo en el puerto ${this.port}`)
         })
     }

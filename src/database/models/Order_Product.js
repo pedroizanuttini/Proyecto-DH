@@ -23,7 +23,7 @@ module.exports =(sequelize, dataTypes) => {
     }
 
     const config= {
-        tiemstamp:true,
+        timestamp:true,
         createdAt:'created_at',
         updatedAt:'udpdated_at',
         deletedAt: false

@@ -1,8 +1,7 @@
 const { response } = require('express');
 const bcrypt = require('bcrypt');
 const fs = require('fs');
-const User = require('../database/models/User');
-const Role = require('../database/models/Role')
+const db =require('../database/models');
 
 const showLogin = (req, res = response) => {
 
@@ -26,7 +25,8 @@ const showRegister = (req, res = response) => {
         res.render('register', { error: null });        
     }
     catch(error){
-        return res.redirect('vistaerror')
+        console.log(error)
+        //return res.redirect('vistaerror')
     }
 }
 
@@ -35,35 +35,35 @@ const createUser = async (req, res = response) => {
 
     console.log(req.file, req.body);
 
-    // const image = fs.readFileSync(req.file.path);
+    const image = fs.readFileSync(req.file.path);
     
-    // // convertir a base64
-    // const imageBase64 = image.toString('base64');
+    // convertir a base64
+    const imageBase64 = image.toString('base64');
 
-    // const types = ['jpg', 'png', 'jpeg'];
-    // const arrayFileName = req.file.originalname.split('.');   //Divide un string de acuerdo a una condicion
-    // const extension = arrayFileName[arrayFileName.length - 1]; 
-    // const extensionResult = types.includes(extension); 
-
-    // if (!extensionResult) {
-    //     return res.render('register', { error: `${extension} no es una extensión permitida, las extensiones válidas son:${types}` })
-    //     // return res.status(400).json({
-    //     //     ok:false,
-    //     //     error: `${extension} no es una extensión permitida, las extensiones válidas son:${types}`
-    //     // })
-    // }
-
-    // const user = { ...req.body, avatar: `${req.file.destination}/${req.file.filename}.${extension}` }
     const user = { ...req.body, avatar: imageBase64 }
 
     try {
         // validar email único
-        const emailExist = await User.findOne({ where: {email:req.body.email} });
-        if(emailExist) return res.json({error:'El email ingresado ya existe'});
+        const emailExist = await db.User.findOne({ where: {email:req.body.email} });
+        if(emailExist) return res.render('./register',{
+            errors:{
+                email:{
+                    msg: 'Este email ya esta registrado'
+                },
+            },    
+            oldData: req.body
+        });
         
         // validar Role
-        const role = await Role.findOne({ where:{ name:req.body.role } })
-        if(!role) return res.json({ error:'El role no existe' })
+        const role = await db.Role.findOne({ where:{ name:req.body.role } })
+        if(!role) return res.render('./register',{
+            errors:{
+                role:{
+                    msg: 'No se puede logear con este role'
+                }
+            },
+            oldData: req.body  //para que me devuelva los datos que puse en el form.
+        });
 
 
         // encriptar la contraseña con bcrypt
@@ -72,15 +72,15 @@ const createUser = async (req, res = response) => {
 
         console.log('ID DEL ROLE',role.id)
 
-        const newUser = await User.create({
+        const newUser = await db.User.create({
             ...user,
-            roleId: role.id,
+            role_id: role.id
         });
         console.log('usuario creado: ',newUser)
 
         fs.unlinkSync(req.file.path);
 
-        res.render('login', { user: null });
+        res.render('login', { user: null }); //no iria un redirect aca???
 
     } catch (error) {
         console.log(error);
@@ -96,7 +96,7 @@ const login = async (req, res = response) => { // se encarga de ver si el email 
         
         // consulto por un usuario con el email que se ingreso en el body
         // const user = await users.find( el => el.email === email);
-        const user = await User.findOne({ where:{email} });
+        const user = await db.User.findOne({ where:{email} });
         // verifico si existe un usuario con ese email, en caso contrario retorno la misma pagina de login pero con un mensaje de error
         if (!user) {
             return res.render('login', { user: null, errorMsg: 'Credenciales incorrectas' });
@@ -107,10 +107,19 @@ const login = async (req, res = response) => { // se encarga de ver si el email 
 
         if (validPassword) {
             // creamos una cookie, la mandamos al navegar y luego redireccionamos a /home
-            return reminder ? res.cookie('user', { email, password }).redirect('/home') : res.redirect('/home');
+            req.session.userLogged = user;
+            // return reminder ? res.cookie('user', { email, password }).redirect('/home') : res.redirect('/home');
+            delete user.password;  //elimino contrasena.
+            return res.json({ ok: true, user: user });
             //user es la clave y el valor es el objeto (lo que esta entre llaves).
         } else {
-            return res.render('login', { user: null, errorMsg: 'Credenciales incorrectas' });
+            return res.render('login', { 
+                errors:{
+                    email:{
+                        msg: 'Credenciales incorrectas'
+                    }
+                }
+             });
         }
 
 

@@ -35,10 +35,10 @@ module.exports =(sequelize, dataTypes) => {
     }
 
     let config= {
-        timestamps: true,
-        tableName: 'created_at',
-        timestamps: 'updated_at',
-        deletedAt: false
+        timestamps: false,
+        createdAt: 'created_at',
+        updatedAt: 'updated_at',
+        deletedAt: false,
     }
 
     const User =sequelize.define(alias, cols, config);

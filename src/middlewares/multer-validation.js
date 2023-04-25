@@ -3,7 +3,7 @@ const upload = multer({ dest: 'public/uploads' })
 
 
 const fileFilter = (req, file, cb) => {
-    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png' || (file.mimeType).includes("jpg")) {
         cb(null, true)
     } else {
         cb(null, false)
