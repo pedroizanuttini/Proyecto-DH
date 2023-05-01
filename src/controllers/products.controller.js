@@ -5,6 +5,24 @@ const db =require('../database/models');
 const sequelize=db.sequelize;
 
 
+
+const getProducts = async (req, res=response) => {
+    try {
+        const products = await db.Product.findAll();
+        return res.status(200).json({
+            ok:true,
+            products
+        })
+    } catch (error) {
+        return res.status(500).json({
+            error:'Internal server error'
+        })
+    }
+}
+
+
+
+
 const showProducts = async (req, res=response) => {      
 
     try {

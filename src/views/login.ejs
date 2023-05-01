@@ -31,6 +31,10 @@
     </header>
     <main>
         <form class="form" action="/auth/login" method="POST">
+
+            <% if (errorMsg) { %>
+                <p style="background-color: rgb(255, 106, 106); color: rgb(150, 31, 31);"><%= errorMsg %></p>
+            <% } %>
             <section class="form-login">
                 <h2>Ingresá a tu cuenta</h2>
                 <label class="rotulos" for="email">Email</label>
@@ -38,7 +42,7 @@
                     placeholder="escriba su email" required>
 
                 <label class="rotulos" for="password">Contrasena</label>
-                <input autocomplete="false" class="controls" value="<%= user ? user.password :''%>" type="password" name="password"
+                <input autocomplete="false" class="controls" value="" type="password" name="password"
                     id="password" placeholder="escriba su clave" required>
                 <label><input class="check" type="checkbox" name="reminder" value="true"> Recordar contraseña</a></label>
 
