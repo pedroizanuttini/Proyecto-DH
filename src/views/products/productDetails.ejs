@@ -17,7 +17,7 @@
             <% if (product) { %>
                 <article class="cart-container__item">
                     <div class="item__image">
-                        <img src="<%=product.image%>">
+                        <img src="data:image/jpg;base64,<%=product.image%>" >
                     </div>
                     <div class="item__info">
                         <h2 class="product_title"><%=product.name %></h2>

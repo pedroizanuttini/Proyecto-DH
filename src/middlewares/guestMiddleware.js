@@ -1,8 +1,9 @@
-// function guestMiddleware(req, res, next){
-//     if(!req.session.userLogged){
-//         return res.redirect('/login) 
-//     }
-//     next();
-// }
+function guestMiddleware(req, res, next){
+    if(!req.session.userLogged){
+        return res.redirect('/login') 
+    }
 
-// module.exports = guestMiddleware;
+    next();
+}
+
+module.exports = guestMiddleware;

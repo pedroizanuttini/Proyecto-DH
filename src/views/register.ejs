@@ -6,6 +6,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" >
     <script src="https://kit.fontawesome.com/a289e801ed.js" crossorigin="anonymous"></script>
     <link href="../css/register.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Registrarse</title>
 </head>
 
@@ -28,12 +29,15 @@
         </nav>
     </header>
     <main>
-        <form class="form" enctype="multipart/form-data">
+        <form class="form" method="POST" action="/auth/new" enctype="multipart/form-data">
             <section class="form-register">
                 <h2>Creá tu cuenta</h2>
                 <% if (error) { %>
                     <p class="error-message">*<%= error %></p>
                 <% } %>
+                <ul class="errors-list">
+
+                </ul>
                 <label class="rotulos" for="nombre">Nombre</label>
                 <input class="controls" type="text" name="fname" id="fname" placeholder="escribe tu nombre" required>
                 
@@ -48,7 +52,7 @@
                 <label class="rotulos" for="password">Clave</label>
                 <input class="controls" type="password" name="password" id="password" placeholder="escribe tu clave"required>
                 <label><input class="check" type="checkbox" name="remember"> Acepto los<a href="#"> términos y condiciones.</a></label>
-                <input style="display:none" type="text" name="role" value="user_role">
+                <input style="display:none" type="text" name="role_id" value="user_role">
                 <input class="botons" type="submit" value="Registrarme">
             </section>
         </form>
@@ -229,6 +233,7 @@
         <p class="footer-claims">Defensa de las y los consumidores. Para reclamos  <a href="/"><strong>ingrese aqui.</strong></a></p>
     </footer>
 
-    <script src="../js/signup.js"></script>
+    
+    <!-- <script src="../js/signup.js"></script> -->
 </body>
 </html>

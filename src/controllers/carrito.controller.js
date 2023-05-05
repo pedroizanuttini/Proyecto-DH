@@ -1,7 +1,10 @@
 const { response } = require('express');
 
 const showCarrito= (req, res=response)=>{
-    res.render('carrito',{});
+
+    const isLogged = req.session.userLogged ? true : false;
+
+    res.render('carrito',{ isLogged });
 }
 
 

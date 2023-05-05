@@ -14,7 +14,7 @@
     <%- include('../partials/headeradmin'); -%>
     <main class="main">
         <section class="new-product">
-            <h1 class="new-product__title">Agrega un producto nuevo</h1>     
+            <h1 class="new-product__title"></a>Agrega un producto nuevo</h1>     
             <% if (product) { %>
                 <form class="new-product__form" action="http://localhost:3000/products/<%=product.id%>" method="POST" enctype="multipart/form-data">
 
@@ -114,13 +114,15 @@
                         <input id="discount" name="discount" class="form-group__input" type="number">
                     </div>
 
-
-                    <button type="submit">
-                        Agregar producto
-                    </button>
+                    <div class="product_summary">
+                        <button class="button-primary" type="submit">
+                            Agregar producto
+                        </button>
+                    </div>
                 </form>
                 <% } %> 
-        </section>    
+        </section>
+        <!-- //<script src="../js/product.js"></script>     -->
     </main>
 
     <script>

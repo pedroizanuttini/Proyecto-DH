@@ -5,6 +5,8 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 
+const userLoggedMiddleware=require('./middlewares/userLoggedMiddleware');
+
 //app.use(session({
 //     secret: "Shhh, it's a secret",
 //     resave: false,
@@ -25,6 +27,8 @@ class App {
         products: '/products'
     };
 
+    //app.use(userLoggedMiddleware)
+
     constructor() {
         this.app = express();
         this.port = 3000;
@@ -37,6 +41,7 @@ class App {
         this.routes();
         // ejecucion de motor de plantillas
         this.views();
+
     }
 
     // async connectDDBB(){
@@ -62,7 +67,7 @@ class App {
 
     middlewares() {
         // parseo del body JSON ---> jasvascript
-        this.app.use(bodyParser.urlencoded({ extended: true }));
+        this.app.use(bodyParser.urlencoded({ extended: false }));
 
         // lectura del body
         this.app.use(bodyParser.json());
@@ -78,7 +83,12 @@ class App {
             secret: "Shhh, it's a secret",
             resave: false,
             saveUninnitialized: false,
+            cookie: {
+                maxAge: 3600000
+            }
         }));
+
+    
     }
 
     routes() {

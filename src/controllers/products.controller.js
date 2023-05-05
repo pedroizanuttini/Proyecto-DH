@@ -51,7 +51,6 @@ const showProductsFormEdit = async (req, res=response) => {
             const product = await db.Product.findByPk(id,{include:[{association:"categories"}]});
             res.render('./products/productsform',{ product, categories, error:null});
         }else{// para crear
-            console.log('categories',categories);
             res.render('./products/productsform',{product:null, categories, error:null});
         } 
         } catch (error) {
@@ -95,7 +94,9 @@ const showProductsFormEdit = async (req, res=response) => {
 const showProductDetail = async(req, res=response) => {    
     try{
         const product =db.Product.findByPk(req.params.id);
-    return res.render('/products/productDetails',{ product });
+
+        const isLogged = req.session.userLogged ? true : false;
+    return res.render('./products/productDetails',{ product, isLogged });
     }catch{
         res.redirect('/notFound');
     }
@@ -107,12 +108,14 @@ const showProductDetail = async(req, res=response) => {
 //http://localhost:3000/products
 const createProduct = async (req, res=response) => {
     
-    console.log('req.file',req.file);
-    console.log('req.body',req.body);
+
+    const image = fs.readFileSync(req.file.path);
+    // convertir a base64
+    const imageBase64 = image.toString('base64');
     try{
        const newProduct = await db.Product.create({
               ...req.body,
-                image: req.file.filename
+                image: imageBase64
             });
 
         
@@ -126,7 +129,7 @@ const createProduct = async (req, res=response) => {
 }
 
     // const image = fs.readFileSync(req.file.path);
-    // // convertir a base64
+    // convertir a base64
     // const imageBase64 = image.toString('base64');
     // console.log('base64: ',imageBase64)
     // const types = ['jpg', 'png', 'jpeg'];
@@ -205,11 +208,12 @@ const updateProduct = async (req, res=response) => {
 const deleteProduct = async (req, res=response) => {
     //Lo mismo aca quiero que me devuelva la lista con todos los productos menos el
     try{
-        const product= await Product.destroy({where:{id:req.params.id}})
-    return res.render('./products/productslist');
+        const product= await db.Product.destroy({where:{id:req.params.id}})
+        console.log('se elimina archivo ',product)
+        return res.redirect('/products');
     }catch(e){
-        res.redirect('./notFound')
-    } //PReguntar: no le tengo que pasar el parametro products??
+        res.render('/notFound')
+    } //Preguntar: no le tengo que pasar el parametro products??
     
     
     

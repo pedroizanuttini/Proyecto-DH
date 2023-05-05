@@ -5,6 +5,7 @@ const lname = document.querySelector('#lname')
 const avatar = document.querySelector('#avatar')
 const email = document.querySelector('#email')
 const password = document.querySelector('#password')
+const errorsList = document.querySelector(".errors-list")
 
 const reEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 console.log(fname);
@@ -25,7 +26,7 @@ fname.addEventListener('input', (event) => {
 // Si se trata de enviar el formulario (presionando el boton "Agregar") estando todos o algun campo vacio -o que no cumpla con los requerimientos-, no sera posible.
 
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
     e.preventDefault(); //evito que se envie el formulario y se refresque la pagina.
 
     console.log(form.elements);
@@ -43,7 +44,7 @@ form.addEventListener('submit', (e) => {
     }
 
     if (lname.value.trim() <2 ) {  //trim() elimina los espacios en blanco
-        errors.push('El titiulo no puede estar vacio')          //is.valid{color:red, borde:2px solid red;}
+        errors.push('El titiulo no puede estar vacio')          
         lname.classList.add('is-invalid')                 
     }
     else {
@@ -52,8 +53,8 @@ form.addEventListener('submit', (e) => {
     }
 
     if (avatar.files[0].type.includes('.jpg') || avatar.files[0].type.includes('.png') || avatar.files[0].type.includes('.jpeg')) {
-        errors.push('la extensión del archivo no es válida')          //is.valid{color:red, borde:2px solid red;}
-        avatar.classList.add('is-invalid')                  //is.valid {color: green border: 2px solid green}
+        errors.push('la extensión del archivo no es válida')          
+        avatar.classList.add('is-invalid')                  
     }
     else {
         avatar.classList.remove('is-invalid')
@@ -61,8 +62,8 @@ form.addEventListener('submit', (e) => {
     }
 
     if (email.value.trim() == '') {
-        errors.push('El email no puede estar vacio')          //is.valid{color:red, borde:2px solid red;}
-        email.classList.add('is-invalid')                  //is.valid {color: green border: 2px solid green}
+        errors.push('El email no puede estar vacio')          
+        email.classList.add('is-invalid')                  
     }
     else {
         email.classList.remove('is-invalid')
@@ -70,17 +71,17 @@ form.addEventListener('submit', (e) => {
     }
 
     if(!reEmail.test(email.value.trim())){ 
-        errors.push('El email no es valido')          //is.valid{color:red, borde:2px solid red;}
-        email.classList.add('is-invalid')                  //is.valid {color: green border: 2px solid green}
+        errors.push('El email no es valido')          
+        email.classList.add('is-invalid')                  
     }
     else{
         email.classList.remove('is-invalid')
         email.classList.add('is-valid')
     }
 
-    if (password.value.trim() <= 8) {
-        errors.push('El titiulo no puede estar vacio')          //is.valid{color:red, borde:2px solid red;}
-        password.classList.add('is-invalid')                  //is.valid {color: green border: 2px solid green}
+    if (password.value.trim() < 8) {
+        errors.push('El titiulo no puede estar vacio')          
+        password.classList.add('is-invalid')                  
     }
     else {
         password.classList.remove('is-invalid')
@@ -88,15 +89,28 @@ form.addEventListener('submit', (e) => {
     }
 
     if(!rePassword.test(password.value.trim())){
-        errors.push('El password no es valido')          //is.valid{color:red, borde:2px solid red;}
-        password.classList.add('is-invalid')                  //is.valid {color: green border: 2px solid green}
+        errors.push('El password no es valido')          
+        password.classList.add('is-invalid')                  
     }
     else{
         password.classList.remove('is-invalid')
         password.classList.add('is-valid')
     }
 
-    if (errors.length > 0) return
+    errorsList.innerHTML =''
+    if (errors.length>0){
+        errorsList.classList.add('alert-warning')
+        Swal.fire = ({
+                icon:'error',
+                title:'Oops...',
+                text:'Algunos campos no son validos',
+        })
+        errors.forEach( error => errorsList.innerHTML += `<li> ${error} </li>`)
+    }    
+    else{
+        form.submit();
+        
+    }
 
     // si no tengo errores entonces envio el formulario
     console.log('enviando formulario...')

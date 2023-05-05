@@ -9,8 +9,12 @@
 
         <ul class="nav__entry-points">
             <li class="entry-point__item"><i class="fa fa-search"></i></li>
-            <li class="entry-point__item"><a href="/auth/login">Ingresá</a></li>
-            <li class="entry-point__item"><a href="/auth/register">Creá tu cuenta</a></li>
+            <% if (!isLogged) { %>
+                <li class="entry-point__item"><a href="/auth/login">Ingresá</a></li>
+                <li class="entry-point__item"><a href="/auth/register">Creá tu cuenta</a></li>
+            <% } else { %>
+                <li class="entry-point__item"><a href="/auth/logout">Cerrar sessión</a></li>
+            <% } %> 
             <li class="entry-point__item"><a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
         </ul>
     </nav>

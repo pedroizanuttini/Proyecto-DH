@@ -34,16 +34,20 @@
                                     </div>
                                     <button class="button-primary">Editar</button>
                                 </div>
-                                <button class="item__icon-close">
-                                    <i class="fa-solid fa-xmark"></i>
-                                </button>
+                                <form action="http://localhost:3000/products/delete/<%=prod.id%>" method="POST">
+                                    <button type="submit" class="item__icon-close">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                </form>
                             </article>
                             <% }) %>
                         <% } %>
                 </div>
             </section>
             <div class="cart_summary">
-                <button class="button-primary">Agregar un nuevo producto</button>
+                <a href="/products/new">
+                    <button class="button-primary">Agregar un nuevo producto</button>
+                </a>
             </div>
 
         </main>
