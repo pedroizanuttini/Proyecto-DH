@@ -108,8 +108,34 @@ form.addEventListener('submit', async (e) => {
         errors.forEach( error => errorsList.innerHTML += `<li> ${error} </li>`)
     }    
     else{
-        form.submit();
-        
+        //Cuando existen archivos en el cuerpo de la peticion, no se puede enviar como JSON, sino que se envian como FORM-DATA.
+        const formdata = newFormData(form)
+        formdata.append('role','user_role')
+        formdata.append('avatar',avatar.file[0])
+        formdata.append('fname', fname.value)
+        formdata.append('fname', lname.value)
+        formdata.append('password',password.value)
+        formdata.append('email',password.value)
+
+        //si es que no existen archivos en el cuerpo de la peticion, se puede enviar como JSON.
+        // const data= {
+        //     fname: fname.value,
+        //     lname: lname.value,
+        //     avatar: avatar.value,
+        //     email: email.value,
+        //     password: password.value,
+        //     role: 'user_role'
+        // }
+        const response = await fetch('/auth/new',
+            {
+                method:'POST',
+                header: {"Content-Type": "multipart/form-data"},
+                body:formdata
+            }
+        );
+        const data = await response.json() //espero la respuesta del servidor y la convierto a objeto literal
+        console.log(data) // muestro la respuesta del servidor
+
     }
 
     // si no tengo errores entonces envio el formulario

@@ -19,12 +19,12 @@ class App {
     port;
     apiPaths = {
         home: '/home',
-        // cart: '/api/v1/cart',
-        // auth: '/api/v1/auth',
-        // products: '/api/v1/products'
-        cart: '/cart',
-        auth: '/auth',
-        products: '/products'
+        cart: '/api/v1/cart',
+        auth: '/api/v1/auth',
+        products: '/api/v1/products'
+        // cart: '/cart',
+        // auth: '/auth',
+        // products: '/products'
     };
 
     //app.use(userLoggedMiddleware)

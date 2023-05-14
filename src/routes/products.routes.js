@@ -11,7 +11,7 @@ const router = Router();
 
 router.get('/', privateMiddleware,showProducts); //http://localhost:3000/products
 router.get('/new', privateMiddleware, showProductsFormEdit ); //http://localhost:3000/products/new
-router.get('/:id', showProductDetail); //
+router.get('/:id', showProductDetail); //http://localhost:3000/products/:id
 
 router.post('/',fileFilter, privateMiddleware, upload.single('image'),[
     body('name','el nombre debe tener al menos 5 caracteres').isLength({min:5}),

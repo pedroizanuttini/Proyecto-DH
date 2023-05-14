@@ -41,10 +41,11 @@ const createUser = async (req, res = response) => {
         // validar email único
         const emailExist = await db.User.findOne({ where: {email:req.body.email} });
         // if(emailExist) return res.json({ ok: false, msg: 'Email ya registrado' });
-        if(emailExist) return res.render('register', { error: 'Email ya registrado' });
+        if(emailExist) {
+            return res.render('register', { error: 'Email ya esta registrado' })
+        };
         
         
-
         // encriptar la contraseña con bcrypt
         const salt = bcrypt.genSaltSync();
         user.password = bcrypt.hashSync(user.password, salt)
@@ -52,7 +53,7 @@ const createUser = async (req, res = response) => {
 
         const newUser = await db.User.create({
             ...user,
-            role_id: req.body.role === 'user_role' ? 1 : req.body.role === 'admin_role' ? 2 : 0,
+            role_id: req.body.role_id === 'user_role' ? 1 : req.body.role === 'admin_role' ? 2 : 0,
         });
 
         console.log(newUser)
