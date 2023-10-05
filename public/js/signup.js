@@ -135,7 +135,36 @@ form.addEventListener('submit', async (e) => {
         );
         const data = await response.json() //espero la respuesta del servidor y la convierto a objeto literal
         console.log(data) // muestro la respuesta del servidor
-
+        /*
+            Si el servidor responde ok, entonces:
+            {
+                ok: true,
+                data: {
+                    fname: 'carlos',
+                    lname: 'gimenez',
+                    avatar: 'carlos.jpg',
+                    ...
+                }
+            }
+        */
+       if(data.ok){
+           //redirecciono al usuario a la pagina de login
+           window.location.href = '/auth/login'
+       }
+         else{
+            //si el servidor responde con error, entonces:
+            /*
+                {
+                    ok: false,
+                    error: 'El usuario ya existe'
+                }
+            */
+           Swal.fire({
+               icon: 'error',
+               title: 'Oops...',
+               text: data.error
+           })
+        }
     }
 
     // si no tengo errores entonces envio el formulario

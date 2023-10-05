@@ -2,12 +2,12 @@ const multer = require('multer')
 const upload = multer({ dest: 'public/uploads' })
 
 
-const fileFilter = (req, file, cb) => {
+const fileFilter = async(req, file) => {
     if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png' || file.mimeType==="jpg") {
-        cb(null, true)
+        return true
     } else {
-        cb(null, false)
         req.fileError = 'ppp'
+        return false
     }
 }
 console.log(fileFilter);

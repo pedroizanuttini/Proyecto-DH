@@ -4,14 +4,10 @@ const db = require('./database/config/config');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const cors=require('cors');
 
-const userLoggedMiddleware=require('./middlewares/userLoggedMiddleware');
 
-//app.use(session({
-//     secret: "Shhh, it's a secret",
-//     resave: false,
-//     saveUninnitialized: false,
-// }))
+
 
 class App {
 
@@ -21,7 +17,8 @@ class App {
         home: '/home',
         cart: '/api/v1/cart',
         auth: '/api/v1/auth',
-        products: '/api/v1/products'
+        products: '/api/v1/products',
+        order:'/api/v1/order'
         // cart: '/cart',
         // auth: '/auth',
         // products: '/products'
@@ -66,12 +63,12 @@ class App {
     // }
 
     middlewares() {
+        this.app.use(cors());
+
         // parseo del body JSON ---> jasvascript
-        this.app.use(bodyParser.urlencoded({ extended: false }));
-
+        this.app.use(express.json());
         // lectura del body
-        this.app.use(bodyParser.json());
-
+        this.app.use(express.urlencoded({ extended: true}));
         // parseo de las cookies
         this.app.use(cookieParser());
 
@@ -88,6 +85,7 @@ class App {
             }
         }));
 
+
     
     }
 
@@ -96,6 +94,7 @@ class App {
         this.app.use(this.apiPaths.auth, require('./routes/auth.routes'));
         this.app.use(this.apiPaths.cart, require('./routes/carrito.routes'));
         this.app.use(this.apiPaths.products, require('./routes/products.routes'));
+        this.app.use(this.apiPaths.order, require('./routes/order.routes'));
     }
 
 

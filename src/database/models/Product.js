@@ -13,10 +13,6 @@ module.exports =(sequelize, dataTypes) => {
             type:dataTypes.STRING(30),
             allowNull: false
         },
-        discount:{
-            type: dataTypes.DECIMAL(1,2),
-            allowNull: false
-        },
         price:{
             type: dataTypes.DECIMAL(10,2),
             allowNull: false
@@ -29,6 +25,10 @@ module.exports =(sequelize, dataTypes) => {
             type: dataTypes.STRING(65535),
             allowNull: false
         },
+        description: {
+            type: dataTypes.STRING(65535),
+            allowNull: false
+        }
         
     }
 

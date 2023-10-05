@@ -1,7 +1,18 @@
 const path = require('path');
 const fs = require('fs');
 
-class Container{
+class DatabaseContainer {
+    async getAllProducts(){
+        try {
+            const data = await db.Product.findAll()
+            return products;  
+        } catch(error) {
+            console.error(error);
+        }
+    }
+}
+
+class FileContainer {
 
     filePath;
 
@@ -24,8 +35,7 @@ class Container{
             const products = await this.getAllProducts();
             const result = products.find( prod => prod.id == id);
             return result;
-
-        }catch(error) {
+        } catch(error) {
             console.log(error);
         }
     }
